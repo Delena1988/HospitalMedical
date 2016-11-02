@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="hosital-service-impl" />
+        <module name="hospital-service" />
+        <module name="hospital-service-api" />
+        <module name="hospital-service-impl" />
+        <module name="hospital-service-impl-test" />
+        <module name="InhospMedical" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hosital-service-impl" target="1.7" />
+      <module name="hospital-service" target="1.7" />
+      <module name="hospital-service-api" target="1.7" />
+      <module name="hospital-service-impl" target="1.7" />
+      <module name="hospital-service-impl-test" target="1.7" />
+      <module name="HospitalMedical" target="1.7" />
+      <module name="InhospMedical" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

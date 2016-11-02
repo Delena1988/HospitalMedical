@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HospitalMedical.iml" filepath="$PROJECT_DIR$/HospitalMedical.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-service-api/hospital-service-api.iml" filepath="$PROJECT_DIR$/hospital-service-api/hospital-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-service-impl/hospital-service-impl.iml" filepath="$PROJECT_DIR$/hospital-service-impl/hospital-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hospital-service-impl-test/hospital-service-impl-test.iml" filepath="$PROJECT_DIR$/hospital-service-impl-test/hospital-service-impl-test.iml" />
+    </modules>
+  </component>
+</project>
