@@ -44,6 +44,12 @@
             </properties>
         </profile>
         <profile>
+            <id>lanxi</id>
+            <properties>
+                <package.environment>lanxi</package.environment>
+            </properties>
+        </profile>
+        <profile>
             <id>production</id>
             <properties>
                 <package.environment>production</package.environment>
@@ -76,6 +82,7 @@
                 <!-- 资源根目录排除各环境的配置，使用单独的资源目录来指定 -->
                 <excludes>
                     <exclude>standard/**</exclude>
+                    <exclude>lanxi/**</exclude>
                     <exclude>assembly.xml</exclude>
                     <exclude>production/*</exclude>
                     <exclude>development/*</exclude>
