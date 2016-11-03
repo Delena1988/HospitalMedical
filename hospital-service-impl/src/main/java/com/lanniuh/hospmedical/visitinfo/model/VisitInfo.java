@@ -2,10 +2,13 @@ package com.lanniuh.hospmedical.visitinfo.model;
 
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Component
-public class VisitInfo {
+public class VisitInfo implements Serializable {
+    private static final long serialVersionUID = 2503176014365734490L;
+
     private String organCode;
 
     private String patIndexNo;
@@ -224,5 +227,33 @@ public class VisitInfo {
 
     public void setAllergyHistory(String allergyHistory) {
         this.allergyHistory = allergyHistory == null ? null : allergyHistory.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "VisitInfo{" +
+                "organCode='" + organCode + '\'' +
+                ", patIndexNo='" + patIndexNo + '\'' +
+                ", visitCardNo='" + visitCardNo + '\'' +
+                ", outhospNo='" + outhospNo + '\'' +
+                ", outhospSerialNo='" + outhospSerialNo + '\'' +
+                ", patTypeCode='" + patTypeCode + '\'' +
+                ", patTypeName='" + patTypeName + '\'' +
+                ", registNo='" + registNo + '\'' +
+                ", registDate=" + registDate +
+                ", visitDate=" + visitDate +
+                ", visitStartDate=" + visitStartDate +
+                ", visitEndDate=" + visitEndDate +
+                ", chiefDescr='" + chiefDescr + '\'' +
+                ", currDiseaseHistory='" + currDiseaseHistory + '\'' +
+                ", pastDiseaseHistory='" + pastDiseaseHistory + '\'' +
+                ", receptTreatDrCode='" + receptTreatDrCode + '\'' +
+                ", receptTreatDrName='" + receptTreatDrName + '\'' +
+                ", visitDeptCode='" + visitDeptCode + '\'' +
+                ", visitDeptName='" + visitDeptName + '\'' +
+                ", diagCode='" + diagCode + '\'' +
+                ", diagName='" + diagName + '\'' +
+                ", allergyHistory='" + allergyHistory + '\'' +
+                '}';
     }
 }

@@ -5,9 +5,8 @@ import com.lanniuh.hospmedical.inhosprecord.model.InhospRecord;
 import com.lanniuh.hospmedical.inhosprecord.service.InhospRecordService;
 import com.lanniuh.util.MultipleDataSource;
 import com.lanniuh.util.PropertiesUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * Created by linjian
@@ -15,7 +14,7 @@ import javax.annotation.Resource;
  */
 @Service("inhospRecordService")
 public class InhospRecordServiceImpl implements InhospRecordService {
-    @Resource
+    @Autowired
     private InhospRecordMapper inhospRecordMapper;
 
     @Override

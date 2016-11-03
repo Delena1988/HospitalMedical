@@ -2,6 +2,7 @@ package com.lanniuh.hospmedical.inhosprecord.model;
 
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,8 @@ import java.util.Date;
  * 16/11/2.
  */
 @Component
-public class InhospRecord {
+public class InhospRecord implements Serializable {
+    private static final long serialVersionUID = -1729438372386048067L;
     private String organCode;
 
     private String patIndexNo;
@@ -578,5 +580,68 @@ public class InhospRecord {
 
     public void setOutcomeName(String outcomeName) {
         this.outcomeName = outcomeName == null ? null : outcomeName.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "InhospRecord{" +
+                "organCode='" + organCode + '\'' +
+                ", patIndexNo='" + patIndexNo + '\'' +
+                ", visitCardNo='" + visitCardNo + '\'' +
+                ", patName='" + patName + '\'' +
+                ", sexCode='" + sexCode + '\'' +
+                ", sexName='" + sexName + '\'' +
+                ", birthDate=" + birthDate +
+                ", inhospNo='" + inhospNo + '\'' +
+                ", inhospNum=" + inhospNum +
+                ", inhospSerialNo='" + inhospSerialNo + '\'' +
+                ", deptName='" + deptName + '\'' +
+                ", wardName='" + wardName + '\'' +
+                ", sickroomNo='" + sickroomNo + '\'' +
+                ", bedNo='" + bedNo + '\'' +
+                ", admitDate=" + admitDate +
+                ", admitSituation='" + admitSituation + '\'' +
+                ", admitWayCode='" + admitWayCode + '\'' +
+                ", admitWayName='" + admitWayName + '\'' +
+                ", patChiefDescr='" + patChiefDescr + '\'' +
+                ", briefDiseaseSituation='" + briefDiseaseSituation + '\'' +
+                ", treatPlan='" + treatPlan + '\'' +
+                ", pastDiseaseHistoryDescr='" + pastDiseaseHistoryDescr + '\'' +
+                ", diseaseHistory='" + diseaseHistory + '\'' +
+                ", surgeryHistory='" + surgeryHistory + '\'' +
+                ", metachysisHistory='" + metachysisHistory + '\'' +
+                ", infectDiseaseHistory='" + infectDiseaseHistory + '\'' +
+                ", admitDiagCode='" + admitDiagCode + '\'' +
+                ", admitDiagName='" + admitDiagName + '\'' +
+                ", receptTreatDrCode='" + receptTreatDrCode + '\'' +
+                ", receptTreatDrName='" + receptTreatDrName + '\'' +
+                ", inhospDrCode='" + inhospDrCode + '\'' +
+                ", inhospDrName='" + inhospDrName + '\'' +
+                ", attendDrCode='" + attendDrCode + '\'' +
+                ", attendDrName='" + attendDrName + '\'' +
+                ", chiefDrCode='" + chiefDrCode + '\'' +
+                ", chiefDrName='" + chiefDrName + '\'' +
+                ", nursingLevelCode='" + nursingLevelCode + '\'' +
+                ", nursingLevelName='" + nursingLevelName + '\'' +
+                ", primaryNurseCode='" + primaryNurseCode + '\'' +
+                ", primaryNurseName='" + primaryNurseName + '\'' +
+                ", treatProcessDescr='" + treatProcessDescr + '\'' +
+                ", dischargeStatus='" + dischargeStatus + '\'' +
+                ", dischargeDate=" + dischargeDate +
+                ", dischargeDiagCode='" + dischargeDiagCode + '\'' +
+                ", dischargeDiagName='" + dischargeDiagName + '\'' +
+                ", dischargeSymptom='" + dischargeSymptom + '\'' +
+                ", dischargeOrder='" + dischargeOrder + '\'' +
+                ", outcome='" + outcome + '\'' +
+                ", dischargeMethodCode='" + dischargeMethodCode + '\'' +
+                ", dischargeMethodName='" + dischargeMethodName + '\'' +
+                ", mobileNo='" + mobileNo + '\'' +
+                ", idNumber='" + idNumber + '\'' +
+                ", allergyHistory='" + allergyHistory + '\'' +
+                ", deptCode='" + deptCode + '\'' +
+                ", currDiseaseHistory='" + currDiseaseHistory + '\'' +
+                ", outcomeCode='" + outcomeCode + '\'' +
+                ", outcomeName='" + outcomeName + '\'' +
+                '}';
     }
 }

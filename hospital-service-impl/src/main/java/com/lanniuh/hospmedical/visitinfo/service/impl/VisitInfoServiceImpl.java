@@ -5,9 +5,8 @@ import com.lanniuh.hospmedical.visitinfo.model.VisitInfo;
 import com.lanniuh.hospmedical.visitinfo.service.VisitInfoService;
 import com.lanniuh.util.MultipleDataSource;
 import com.lanniuh.util.PropertiesUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * Created by linjian
@@ -15,7 +14,7 @@ import javax.annotation.Resource;
  */
 @Service(value = "visitInfoService")
 public class VisitInfoServiceImpl implements VisitInfoService {
-    @Resource
+    @Autowired
     private VisitInfoMapper visitInfoMapper;
 
     @Override
