@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.hospmedical.patientinfo.dao.PatientInfoMapper">
+    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.patientinfo.PatientInfo">
+        <id column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="OUTHOSP_NO" jdbcType="VARCHAR" property="outhospNo"/>
+        <result column="INHOSP_NO" jdbcType="VARCHAR" property="inhospNo"/>
+        <result column="PAT_NAME" jdbcType="VARCHAR" property="patName"/>
+        <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber"/>
+        <result column="BIRTH_DATE" jdbcType="VARCHAR" property="birthDate"/>
+        <result column="SEX_CODE" jdbcType="VARCHAR" property="sexCode"/>
+        <result column="SEX_NAME" jdbcType="VARCHAR" property="sexName"/>
+        <result column="ETHNIC_CODE" jdbcType="VARCHAR" property="ethnicCode"/>
+        <result column="ETHNIC_NAME" jdbcType="VARCHAR" property="ethnicName"/>
+        <result column="MOBILE_NO" jdbcType="VARCHAR" property="mobileNo"/>
+        <result column="CONTACT_NAME" jdbcType="VARCHAR" property="contactName"/>
+        <result column="CONTACT_RELATION" jdbcType="VARCHAR" property="contactRelation"/>
+        <result column="CONTACT_PHONE_NO" jdbcType="VARCHAR" property="contactPhoneNo"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    PAT_INDEX_NO, ORGAN_CODE, OUTHOSP_NO, INHOSP_NO, PAT_NAME, ID_NUMBER, BIRTH_DATE, 
+    SEX_CODE, SEX_NAME, ETHNIC_CODE, ETHNIC_NAME, MOBILE_NO, CONTACT_NAME, CONTACT_RELATION, 
+    CONTACT_PHONE_NO
+  </sql>
+    <select id="selectByParams" parameterType="com.lanniuh.hospmedical.model.patientinfo.PatientInfoReq"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from v_jh_patientinfo
+        where 1 = 1
+        <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
+            and PAT_INDEX_NO=#{patIndexNo}
+        </if>
+        <if test="patName != null and !''.equals(patName.trim())">
+            and PAT_NAME=#{patName}
+        </if>
+        <if test="idNumber != null and !''.equals(idNumber.trim())">
+            and ID_NUMBER=#{idNumber}
+        </if>
+        <if test="mobileNo != null and !''.equals(mobileNo.trim())">
+            and MOBILE_NO=#{mobileNo}
+        </if>
+    </select>
+</mapper>

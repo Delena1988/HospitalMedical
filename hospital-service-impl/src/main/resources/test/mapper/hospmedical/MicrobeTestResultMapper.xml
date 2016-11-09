@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.hospmedical.microbetestresult.dao.MicrobeTestResultMapper">
+  <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.microbetestresult.MicrobeTestResult">
+    <id column="REPORT_NO" jdbcType="VARCHAR" property="reportNo" />
+    <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
+    <result column="TEST_RESULT_NO" jdbcType="VARCHAR" property="testResultNo" />
+    <result column="MICROBE_NAME" jdbcType="VARCHAR" property="microbeName" />
+    <result column="BACTERIAL_COLONY_COUNT" jdbcType="VARCHAR" property="bacterialColonyCount" />
+    <result column="ANTIBIOTICS" jdbcType="VARCHAR" property="antibiotics" />
+    <result column="TEST_RESULT_VALUE" jdbcType="VARCHAR" property="testResultValue" />
+    <result column="TEST_RESULT_VALUE_UNIT" jdbcType="VARCHAR" property="testResultValueUnit" />
+    <result column="TEST_QUALITATIVE_RESULT" jdbcType="VARCHAR" property="testQualitativeResult" />
+    <result column="TEST_METHOD" jdbcType="VARCHAR" property="testMethod" />
+    <result column="REFERENCE_RANGES" jdbcType="VARCHAR" property="referenceRanges" />
+    <result column="REFERENCE_UPPER_LIMIT" jdbcType="VARCHAR" property="referenceUpperLimit" />
+    <result column="REFERENCE_LOWER_LIMIT" jdbcType="VARCHAR" property="referenceLowerLimit" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    REPORT_NO, ORGAN_CODE, TEST_RESULT_NO, MICROBE_NAME, BACTERIAL_COLONY_COUNT, ANTIBIOTICS, 
+    TEST_RESULT_VALUE, TEST_RESULT_VALUE_UNIT, TEST_QUALITATIVE_RESULT, TEST_METHOD, 
+    REFERENCE_RANGES, REFERENCE_UPPER_LIMIT, REFERENCE_LOWER_LIMIT, NOTE
+  </sql>
+  <select id="selectByParams" parameterType="com.lanniuh.hospmedical.model.microbetestresult.MicrobeTestResultReq" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_jh_microbetestresult
+    where REPORT_NO = #{reportNo,jdbcType=VARCHAR}
+  </select>
+</mapper>

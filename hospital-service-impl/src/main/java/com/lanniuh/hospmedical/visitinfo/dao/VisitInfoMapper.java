@@ -1,17 +1,12 @@
 package com.lanniuh.hospmedical.visitinfo.dao;
 
-import com.lanniuh.hospmedical.visitinfo.model.VisitInfo;
+import com.github.pagehelper.Page;
+import com.lanniuh.hospmedical.model.visitinfo.VisitInfo;
+import com.lanniuh.hospmedical.model.visitinfo.VisitInfoReq;
+
+import java.util.List;
 
 public interface VisitInfoMapper {
-    int deleteByPrimaryKey(String outhospSerialNo);
-
-    int insert(VisitInfo record);
-
-    int insertSelective(VisitInfo record);
-
-    VisitInfo selectByPrimaryKey(String outhospSerialNo);
-
-    int updateByPrimaryKeySelective(VisitInfo record);
-
-    int updateByPrimaryKey(VisitInfo record);
+    List<VisitInfo> selectByParamsUnpaged(VisitInfoReq visitInfoReq);
+    Page<VisitInfo> selectByParamsPaged(VisitInfoReq visitInfoReq);
 }

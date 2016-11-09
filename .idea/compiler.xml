@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="common-utils" />
         <module name="hosital-service-impl" />
         <module name="hospital-service" />
         <module name="hospital-service-api" />
@@ -31,6 +32,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="common-utils" target="1.7" />
       <module name="hosital-service-impl" target="1.7" />
       <module name="hospital-service" target="1.7" />
       <module name="hospital-service-api" target="1.7" />

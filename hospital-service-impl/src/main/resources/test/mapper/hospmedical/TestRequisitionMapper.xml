@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.hospmedical.testrequisition.dao.TestRequisitionMapper">
+  <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.testrequisition.TestRequisition">
+    <id column="REQUISITION_NO" jdbcType="VARCHAR" property="requisitionNo" />
+    <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
+    <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo" />
+    <result column="OUTHOSP_NO" jdbcType="VARCHAR" property="outhospNo" />
+    <result column="OUTHOSP_SERIAL_NO" jdbcType="VARCHAR" property="outhospSerialNo" />
+    <result column="INHOSP_NO" jdbcType="VARCHAR" property="inhospNo" />
+    <result column="INHOSP_NUM" jdbcType="VARCHAR" property="inhospNum" />
+    <result column="INHOSP_SERIAL_NO" jdbcType="VARCHAR" property="inhospSerialNo" />
+    <result column="REQUISITION_NO_ITEM" jdbcType="VARCHAR" property="requisitionNoItem" />
+    <result column="APPLY_DATE" jdbcType="TIMESTAMP" property="applyDate" />
+    <result column="TEST_APPLY_ITEM_CODE" jdbcType="VARCHAR" property="testApplyItemCode" />
+    <result column="TEST_APPLY_ITEM_NAME" jdbcType="VARCHAR" property="testApplyItemName" />
+    <result column="REQUISITION_STATUS" jdbcType="VARCHAR" property="requisitionStatus" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    REQUISITION_NO, ORGAN_CODE, PAT_INDEX_NO, OUTHOSP_NO, OUTHOSP_SERIAL_NO, INHOSP_NO, 
+    INHOSP_NUM, INHOSP_SERIAL_NO, REQUISITION_NO_ITEM, APPLY_DATE, TEST_APPLY_ITEM_CODE, 
+    TEST_APPLY_ITEM_NAME, REQUISITION_STATUS, NOTE
+  </sql>
+  <select id="selectByParams" parameterType="com.lanniuh.hospmedical.model.testrequisition.TestRequisitionReq" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_jh_testrequisition
+    where 1 = 1
+    <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
+      and OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+    </if>
+    <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
+      and INHOSP_SERIAL_NO=#{inhospSerialNo}
+    </if>
+    <if test="startDate != null and !''.equals(startDate)">
+      and APPLY_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+    </if>
+    <if test="endDate != null and !''.equals(endDate)">
+      and APPLY_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+    </if>
+    order by APPLY_DATE desc
+  </select>
+</mapper>

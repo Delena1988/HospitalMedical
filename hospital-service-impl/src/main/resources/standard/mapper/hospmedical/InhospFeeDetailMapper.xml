@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.hospmedical.inhospfeedetail.dao.InhospFeeDetailMapper">
+    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.inhospfeedetail.InhospFeeDetail">
+        <id column="DEAL_NO" jdbcType="VARCHAR" property="dealNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo"/>
+        <result column="DEAL_SUB_NO" jdbcType="VARCHAR" property="dealSubNo"/>
+        <result column="CHARGE_ITEM_CODE" jdbcType="VARCHAR" property="chargeItemCode"/>
+        <result column="CHARGE_ITEM_NAME" jdbcType="VARCHAR" property="chargeItemName"/>
+        <result column="FEE_CATEG_CODE" jdbcType="VARCHAR" property="feeCategCode"/>
+        <result column="FEE_CATEG_NAME" jdbcType="VARCHAR" property="feeCategName"/>
+        <result column="DRUG_CATALOG_TYPE" jdbcType="VARCHAR" property="drugCatalogType"/>
+        <result column="DRUG_AMOUNT" jdbcType="VARCHAR" property="drugAmount"/>
+        <result column="DRUG_UNIT" jdbcType="VARCHAR" property="drugUnit"/>
+        <result column="DRUG_UNIT_PRICE" jdbcType="VARCHAR" property="drugUnitPrice"/>
+        <result column="SELF_PERCENT" jdbcType="VARCHAR" property="selfPercent"/>
+        <result column="TOTAL_MONEY" jdbcType="VARCHAR" property="totalMoney"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    DEAL_NO, ORGAN_CODE, ORDER_NO, DEAL_SUB_NO, CHARGE_ITEM_CODE, CHARGE_ITEM_NAME, FEE_CATEG_CODE, 
+    FEE_CATEG_NAME, DRUG_CATALOG_TYPE, DRUG_AMOUNT, DRUG_UNIT, DRUG_UNIT_PRICE, SELF_PERCENT, 
+    TOTAL_MONEY
+  </sql>
+    <select id="selectByParams" parameterType="com.lanniuh.hospmedical.model.inhospfeedetail.InhospFeeDetailReq"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from v_jh_inhospfeedetail
+        where 1 = 1
+        <if test="feeCategCode != null and !''.equals(feeCategCode.trim())">
+            and FEE_CATEG_CODE = #{feeCategCode}
+        </if>
+        <if test="dealNo.size() &gt; 0">
+            and DEAL_NO in
+            <foreach item="item" index="index" collection="dealNo"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        order by DEAL_SUB_NO
+    </select>
+</mapper>

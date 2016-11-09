@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.hospmedical.outhospbalance.dao.OuthospBalanceMapper">
+    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.outhospbalance.OuthospBalance">
+        <id column="DEAL_NO" jdbcType="VARCHAR" property="dealNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="BALANCE_NO" jdbcType="VARCHAR" property="balanceNo"/>
+        <result column="FEE_CATEG_CODE" jdbcType="VARCHAR" property="feeCategCode"/>
+        <result column="FEE_CATEG_NAME" jdbcType="VARCHAR" property="feeCategName"/>
+        <result column="TOTAL_MONEY" jdbcType="DECIMAL" property="totalMoney"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    DEAL_NO, ORGAN_CODE, BALANCE_NO, FEE_CATEG_CODE, FEE_CATEG_NAME, TOTAL_MONEY
+  </sql>
+    <select id="selectByParams" parameterType="com.lanniuh.hospmedical.model.outhospbalance.OuthospBalanceReq" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from v_jh_outhospbalance
+        where DEAL_NO in
+        <foreach item="item" index="index" collection="dealNo"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        ORDER BY BALANCE_NO
+    </select>
+</mapper>

@@ -9,6 +9,7 @@
       <module>hospital-service-api</module>
       <module>hospital-service-impl</module>
       <module>hospital-service-impl-test</module>
+        <module>common-utils</module>
     </modules>
     <packaging>pom</packaging>
 

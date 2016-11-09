@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.appointment.remainingnosource.dao.RemainingNoSourceMapper">
+  <resultMap id="BaseResultMap" type="com.lanniuh.appointment.model.remainingnosource.RemainingNoSource">
+    <id column="SCHEDULING_NO" jdbcType="VARCHAR" property="schedulingNo" />
+    <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
+    <result column="AMOUNT" jdbcType="VARCHAR" property="amount" />
+    <result column="REMAINING_AMOUNT" jdbcType="VARCHAR" property="remainingAmount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SCHEDULING_NO, ORGAN_CODE, AMOUNT, REMAINING_AMOUNT
+  </sql>
+  <select id="selectByParams" parameterType="com.lanniuh.appointment.model.remainingnosource.RemainingNoSourceReq" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_jh_remainingnosource
+    where SCHEDULING_NO = #{schedulingNo}
+  </select>
+</mapper>

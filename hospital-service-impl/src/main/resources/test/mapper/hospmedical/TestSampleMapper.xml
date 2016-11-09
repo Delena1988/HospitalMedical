@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.hospmedical.testsample.dao.TestSampleMapper">
+  <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.testsample.TestSample">
+    <id column="BARCODE_NO" jdbcType="VARCHAR" property="barcodeNo" />
+    <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
+    <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo" />
+    <result column="OUTHOSP_NO" jdbcType="VARCHAR" property="outhospNo" />
+    <result column="OUTHOSP_SERIAL_NO" jdbcType="VARCHAR" property="outhospSerialNo" />
+    <result column="INHOSP_NO" jdbcType="VARCHAR" property="inhospNo" />
+    <result column="INHOSP_NUM" jdbcType="VARCHAR" property="inhospNum" />
+    <result column="INHOSP_SERIAL_NO" jdbcType="VARCHAR" property="inhospSerialNo" />
+    <result column="REQUISITION_NO" jdbcType="VARCHAR" property="requisitionNo" />
+    <result column="REQUISITION_NO_ITEM" jdbcType="VARCHAR" property="requisitionNoItem" />
+    <result column="SAMPLING_DATE" jdbcType="VARCHAR" property="samplingDate" />
+    <result column="SAMPLING_LOCATION" jdbcType="VARCHAR" property="samplingLocation" />
+    <result column="TAKE_REPORT_DATE" jdbcType="VARCHAR" property="takeReportDate" />
+    <result column="TAKE_REPORT_LOCATION" jdbcType="VARCHAR" property="takeReportLocation" />
+    <result column="REQUISITION_PRINT_DATE" jdbcType="VARCHAR" property="requisitionPrintDate" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+    <result column="RELATION_TYPE" jdbcType="VARCHAR" property="relationType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BARCODE_NO, ORGAN_CODE, PAT_INDEX_NO, OUTHOSP_NO, OUTHOSP_SERIAL_NO, INHOSP_NO, INHOSP_NUM, 
+    INHOSP_SERIAL_NO, REQUISITION_NO, REQUISITION_NO_ITEM, SAMPLING_DATE, SAMPLING_LOCATION, 
+    TAKE_REPORT_DATE, TAKE_REPORT_LOCATION, REQUISITION_PRINT_DATE, NOTE, RELATION_TYPE
+  </sql>
+  <select id="selectByParams" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from v_jh_testsample
+    where 1 = 1
+    <if test="requisitionNo.size() &gt; 0">
+      and REQUISITION_NO in
+      <foreach item="item" index="index" collection="requisitionNo"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    <if test="requisitionNoItem.size() &gt; 0">
+      and REQUISITION_NO_ITEM in
+      <foreach item="item" index="index" collection="requisitionNoItem"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
+      and PAT_INDEX_NO=#{patIndexNo}
+    </if>
+    <if test="outhospNo != null and !''.equals(outhospNo.trim())">
+      and OUTHOSP_NO=#{outhospNo}
+    </if>
+    <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
+      and OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+    </if>
+    <if test="inhospNo != null and !''.equals(inhospNo.trim())">
+      and INHOSP_NO=#{inhospNo}
+    </if>
+    <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
+      and INHOSP_SERIAL_NO=#{inhospSerialNo}
+    </if>
+  </select>
+</mapper>

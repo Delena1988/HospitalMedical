@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.hospmedical.signs.dao.SignsMapper">
+    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.signs.Signs">
+        <id column="RESULT_NO" jdbcType="VARCHAR" property="resultNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
+        <result column="VISIT_CARD_NO" jdbcType="VARCHAR" property="visitCardNo"/>
+        <result column="OUTHOSP_NO" jdbcType="VARCHAR" property="outhospNo"/>
+        <result column="OUTHOSP_SERIAL_NO" jdbcType="VARCHAR" property="outhospSerialNo"/>
+        <result column="INHOSP_NO" jdbcType="VARCHAR" property="inhospNo"/>
+        <result column="INHOSP_SERIAL_NO" jdbcType="VARCHAR" property="inhospSerialNo"/>
+        <result column="PAT_TYPE_NAME" jdbcType="VARCHAR" property="patTypeName"/>
+        <result column="PAT_NAME" jdbcType="VARCHAR" property="patName"/>
+        <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber"/>
+        <result column="AGE" jdbcType="VARCHAR" property="age"/>
+        <result column="BIRTH_DATE" jdbcType="VARCHAR" property="birthDate"/>
+        <result column="SEX_CODE" jdbcType="VARCHAR" property="sexCode"/>
+        <result column="SEX_NAME" jdbcType="VARCHAR" property="sexName"/>
+        <result column="TYPE" jdbcType="VARCHAR" property="type"/>
+        <result column="VAULE" jdbcType="VARCHAR" property="vaule"/>
+        <result column="UNIT" jdbcType="VARCHAR" property="unit"/>
+        <result column="NORMAL_FLAG" jdbcType="VARCHAR" property="normalFlag"/>
+        <result column="MEASURE_DATE" jdbcType="VARCHAR" property="measureDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    RESULT_NO, ORGAN_CODE, PAT_INDEX_NO, VISIT_CARD_NO, OUTHOSP_NO, OUTHOSP_SERIAL_NO, 
+    INHOSP_NO, INHOSP_SERIAL_NO, PAT_TYPE_NAME, PAT_NAME, ID_NUMBER, AGE, BIRTH_DATE, 
+    SEX_CODE, SEX_NAME, TYPE, VAULE, UNIT, NORMAL_FLAG, MEASURE_DATE
+  </sql>
+    <select id="selectByParamsUnpaged" parameterType="com.lanniuh.hospmedical.model.signs.SignsReq"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from v_jh_signs
+        where 1 = 1
+        <if test="type == null or ''.equals(type.trim())">
+            and TYPE IN ('收缩压','舒张压','脉搏','血糖','体温')
+        </if>
+        <if test="type != null and !''.equals(type.trim())">
+            <if test="'血压'.equals(type.trim())">
+                and (TYPE = '收缩压' OR TYPE = '舒张压')
+            </if>
+            <if test="!'血压'.equals(type.trim())">
+                and TYPE = #{type}
+            </if>
+        </if>
+        <if test="patName != null and !''.equals(patName.trim())">
+            and PAT_NAME = #{patName}
+        </if>
+        <if test="patTypeName != null and !''.equals(patTypeName.trim())">
+            and PAT_TYPE_NAME = #{patTypeName}
+        </if>
+        <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
+            and PAT_INDEX_NO = #{patIndexNo}
+        </if>
+        <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
+            and VISIT_CARD_NO = #{visitCardNo}
+        </if>
+        <if test="outhospNo != null and !''.equals(outhospNo.trim())">
+            and OUTHOSP_NO = #{outhospNo}
+        </if>
+        <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
+            and OUTHOSP_SERIAL_NO = #{outhospSerialNo}
+        </if>
+        <if test="inhospNo != null and !''.equals(inhospNo.trim())">
+            and INHOSP_NO = #{inhospNo}
+        </if>
+        <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
+            and INHOSP_SERIAL_NO = #{inhospSerialNo}
+        </if>
+        <if test="idNumber != null and !''.equals(idNumber.trim())">
+            and ID_NUMBER = #{idNumber}
+        </if>
+        <if test="normalFlag != null and !''.equals(normalFlag.trim())">
+            and NORMAL_FLAG = #{normalFlag}
+        </if>
+        <if test="startDate != null and !''.equals(startDate)">
+            and MEASURE_DATE &gt;= #{startDate}
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            and MEASURE_DATE &lt;= #{endDate}
+        </if>
+    </select>
+
+    <select id="selectByParamsPaged" parameterType="com.lanniuh.hospmedical.model.signs.SignsReq"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from v_jh_signs
+        where 1 = 1
+        <if test="type == null or ''.equals(type.trim())">
+            and TYPE IN ('收缩压','舒张压','脉搏','血糖','体温')
+        </if>
+        <if test="type != null and !''.equals(type.trim())">
+            <if test="'血压'.equals(type.trim())">
+                and (TYPE = '收缩压' OR TYPE = '舒张压')
+            </if>
+            <if test="!'血压'.equals(type.trim())">
+                and TYPE = #{type}
+            </if>
+        </if>
+        <if test="patName != null and !''.equals(patName.trim())">
+            and PAT_NAME = #{patName}
+        </if>
+        <if test="patTypeName != null and !''.equals(patTypeName.trim())">
+            and PAT_TYPE_NAME = #{patTypeName}
+        </if>
+        <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
+            and PAT_INDEX_NO = #{patIndexNo}
+        </if>
+        <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
+            and VISIT_CARD_NO = #{visitCardNo}
+        </if>
+        <if test="outhospNo != null and !''.equals(outhospNo.trim())">
+            and OUTHOSP_NO = #{outhospNo}
+        </if>
+        <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
+            and OUTHOSP_SERIAL_NO = #{outhospSerialNo}
+        </if>
+        <if test="inhospNo != null and !''.equals(inhospNo.trim())">
+            and INHOSP_NO = #{inhospNo}
+        </if>
+        <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
+            and INHOSP_SERIAL_NO = #{inhospSerialNo}
+        </if>
+        <if test="idNumber != null and !''.equals(idNumber.trim())">
+            and ID_NUMBER = #{idNumber}
+        </if>
+        <if test="normalFlag != null and !''.equals(normalFlag.trim())">
+            and NORMAL_FLAG = #{normalFlag}
+        </if>
+        <if test="startDate != null and !''.equals(startDate)">
+            and MEASURE_DATE &gt;= #{startDate}
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            and MEASURE_DATE &lt;= #{endDate}
+        </if>
+        order by MEASURE_DATE desc
+    </select>
+</mapper>

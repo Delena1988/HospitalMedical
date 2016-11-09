@@ -1,12 +1,14 @@
 package com.lanniuh.hospmedical.visitinfo.service.impl;
 
+import com.github.pagehelper.Page;
+import com.lanniuh.hospmedical.model.visitinfo.VisitInfo;
+import com.lanniuh.hospmedical.model.visitinfo.VisitInfoReq;
 import com.lanniuh.hospmedical.visitinfo.dao.VisitInfoMapper;
-import com.lanniuh.hospmedical.visitinfo.model.VisitInfo;
 import com.lanniuh.hospmedical.visitinfo.service.VisitInfoService;
-import com.lanniuh.util.MultipleDataSource;
-import com.lanniuh.util.PropertiesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by linjian
@@ -18,9 +20,12 @@ public class VisitInfoServiceImpl implements VisitInfoService {
     private VisitInfoMapper visitInfoMapper;
 
     @Override
-    public VisitInfo getVisitInfo(String outhospSerialNo) {
-        MultipleDataSource.setDataSourceKey(PropertiesUtil.getInstanse().get("getVisitInfo"));
-        outhospSerialNo = "95279";
-        return visitInfoMapper.selectByPrimaryKey(outhospSerialNo);
+    public List<VisitInfo> selectByParamsUnpaged(VisitInfoReq visitInfoReq) {
+        return visitInfoMapper.selectByParamsUnpaged(visitInfoReq);
+    }
+
+    @Override
+    public Page<VisitInfo> selectByParamsPaged(VisitInfoReq visitInfoReq) {
+        return visitInfoMapper.selectByParamsPaged(visitInfoReq);
     }
 }

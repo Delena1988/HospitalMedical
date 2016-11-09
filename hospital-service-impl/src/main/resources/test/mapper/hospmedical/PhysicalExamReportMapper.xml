@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanniuh.hospmedical.physicalexamreport.dao.PhysicalExamReportMapper">
+    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.physicalexamreport.PhysicalExamReport">
+        <id column="REPORT_NO" jdbcType="VARCHAR" property="reportNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
+        <result column="VISIT_CARD_NO" jdbcType="VARCHAR" property="visitCardNo"/>
+        <result column="PAT_NAME" jdbcType="VARCHAR" property="patName"/>
+        <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber"/>
+        <result column="BIRTH_DATE" jdbcType="VARCHAR" property="birthDate"/>
+        <result column="SEX_CODE" jdbcType="VARCHAR" property="sexCode"/>
+        <result column="SEX_NAME" jdbcType="VARCHAR" property="sexName"/>
+        <result column="MARITAL_STATUS_CODE" jdbcType="VARCHAR" property="maritalStatusCode"/>
+        <result column="MARITAL_STATUS_NAME" jdbcType="VARCHAR" property="maritalStatusName"/>
+        <result column="COMPANY" jdbcType="VARCHAR" property="company"/>
+        <result column="FAMILY_ADDR" jdbcType="VARCHAR" property="familyAddr"/>
+        <result column="MOBILE_NO" jdbcType="VARCHAR" property="mobileNo"/>
+        <result column="EXAM_DATE" jdbcType="VARCHAR" property="examDate"/>
+        <result column="EXAM_RESULT" jdbcType="VARCHAR" property="examResult"/>
+        <result column="EXAM_ADVICE" jdbcType="VARCHAR" property="examAdvice"/>
+        <result column="REPORT_DR" jdbcType="VARCHAR" property="reportDr"/>
+        <result column="REPORT_DATE" jdbcType="VARCHAR" property="reportDate"/>
+        <result column="CHECK_DR" jdbcType="VARCHAR" property="checkDr"/>
+        <result column="CHECK_DATE" jdbcType="VARCHAR" property="checkDate"/>
+        <result column="EXAM_TYPE" jdbcType="VARCHAR" property="examType"/>
+        <result column="AGE" jdbcType="VARCHAR" property="age"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    REPORT_NO, ORGAN_CODE, PAT_INDEX_NO, VISIT_CARD_NO, PAT_NAME, ID_NUMBER, BIRTH_DATE, 
+    SEX_CODE, SEX_NAME, MARITAL_STATUS_CODE, MARITAL_STATUS_NAME, COMPANY, FAMILY_ADDR, 
+    MOBILE_NO, EXAM_DATE, EXAM_RESULT, EXAM_ADVICE, REPORT_DR, REPORT_DATE, CHECK_DR, 
+    CHECK_DATE, EXAM_TYPE, AGE
+  </sql>
+    <select id="selectByParamsUnpaged"
+            parameterType="com.lanniuh.hospmedical.model.physicalexamreport.PhysicalExamReportReq"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from v_jh_physicalexamreport
+        where 1 = 1
+        <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
+            and PAT_INDEX_NO = #{patIndexNo}
+        </if>
+        <if test="reportNo != null and !''.equals(reportNo.trim())">
+            and REPORT_NO = #{reportNo}
+        </if>
+        <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
+            and VISIT_CARD_NO = #{visitCardNo}
+        </if>
+        <if test="patName != null and !''.equals(patName.trim())">
+            and PAT_NAME = #{patName}
+        </if>
+        <if test="idNumber != null and !''.equals(idNumber.trim())">
+            and ID_NUMBER = #{idNumber}
+        </if>
+        <if test="mobileNo != null and !''.equals(mobileNo.trim())">
+            and MOBILE_NO = #{mobileNo}
+        </if>
+        <if test="examType != null and !''.equals(examType.trim())">
+            and EXAM_TYPE = #{examType}
+        </if>
+        <if test="startDate != null and !''.equals(startDate)">
+            and CHECK_DATE &gt;= #{startDate}
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            and CHECK_DATE &lt;= #{endDate}
+        </if>
+    </select>
+
+    <select id="selectByParamsPaged"
+            parameterType="com.lanniuh.hospmedical.model.physicalexamreport.PhysicalExamReportReq"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from v_jh_physicalexamreport
+        where 1 = 1
+        <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
+            and PAT_INDEX_NO = #{patIndexNo}
+        </if>
+        <if test="reportNo != null and !''.equals(reportNo.trim())">
+            and REPORT_NO = #{reportNo}
+        </if>
+        <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
+            and VISIT_CARD_NO = #{visitCardNo}
+        </if>
+        <if test="patName != null and !''.equals(patName.trim())">
+            and PAT_NAME = #{patName}
+        </if>
+        <if test="idNumber != null and !''.equals(idNumber.trim())">
+            and ID_NUMBER = #{idNumber}
+        </if>
+        <if test="mobileNo != null and !''.equals(mobileNo.trim())">
+            and MOBILE_NO = #{mobileNo}
+        </if>
+        <if test="examType != null and !''.equals(examType.trim())">
+            and EXAM_TYPE = #{examType}
+        </if>
+        <if test="startDate != null and !''.equals(startDate)">
+            and CHECK_DATE &gt;= #{startDate}
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            and CHECK_DATE &lt;= #{endDate}
+        </if>
+        ORDER BY REPORT_DATE,REPORT_NO DESC
+    </select>
+</mapper>
