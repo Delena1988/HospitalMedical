@@ -5,9 +5,9 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 	
 	<!--<dubbo:service interface="cn.joinhealth.api.HospitalService" ref="hospitalService"/>-->
-	<bean id="hospitalMedicalService" class="com.lanniuh.service.HospitalMedicalServiceImpl"></bean>
-	<bean id="appointmentService" class="com.lanniuh.service.AppointmentServiceImpl"></bean>
+	<bean id="hospitalMedicalService" class="cn.joinhealth.service.HospitalMedicalServiceImpl"></bean>
+	<bean id="appointmentService" class="cn.joinhealth.service.AppointmentServiceImpl"></bean>
 	<!--要暴露的服务接口-->
-	<dubbo:service interface="com.lanniuh.hospmedical.api.HospitalMedicalService" ref="hospitalMedicalService"
-				   timeout="1200000"/>
+	<dubbo:service interface="cn.joinhealth.hospmedical.api.HospitalMedicalService" ref="hospitalMedicalService"
+                   timeout="1200000"/>
 </beans>

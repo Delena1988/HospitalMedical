@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanniuh.hospmedical.staffdict.dao.StaffDictMapper">
-  <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.staffdict.StaffDict">
+<mapper namespace="cn.joinhealth.hospmedical.staffdict.dao.StaffDictMapper">
+  <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.staffdict.StaffDict">
     <id column="STAFF_INDEX_NO" jdbcType="VARCHAR" property="staffIndexNo" />
     <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
     <result column="STAFF_CODE" jdbcType="VARCHAR" property="staffCode" />

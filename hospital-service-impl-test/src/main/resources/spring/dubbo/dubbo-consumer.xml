@@ -6,5 +6,5 @@
 
 <!--	<dubbo:reference id="dictHospService" interface="cn.joinhealth.hug.model.api.dict.DictHospService"/>-->
 
-	<dubbo:reference id="hospitalMedicalService" interface="com.lanniuh.hospmedical.api.HospitalMedicalService"/>
+	<dubbo:reference id="hospitalMedicalService" interface="cn.joinhealth.hospmedical.api.HospitalMedicalService"/>
 </beans>

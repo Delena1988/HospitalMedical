@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanniuh.hospmedical.inhospdiag.dao.InhospDiagMapper">
-  <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.inhospdiag.InhospDiag">
+<mapper namespace="cn.joinhealth.hospmedical.inhospdiag.dao.InhospDiagMapper">
+  <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.inhospdiag.InhospDiag">
     <id column="INHOSP_SERIAL_NO" jdbcType="VARCHAR" property="inhospSerialNo" />
     <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
     <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo" />
@@ -20,7 +20,7 @@
     INHOSP_SERIAL_NO, ORGAN_CODE, PAT_INDEX_NO, INHOSP_NO, INHOSP_NUM, DIAG_INDEX_NO, 
     DIAG_DATE, DIAG_NO, DIAG_TYPE_CODE, DIAG_TYPE_NAME, DIAG_CODE, DIAG_NAME, DIAG_INTRODUCTION
   </sql>
-  <select id="selectByParams" parameterType="com.lanniuh.hospmedical.model.inhospdiag.InhospDiagReq" resultMap="BaseResultMap">
+  <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.inhospdiag.InhospDiagReq" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from v_jh_inhospdiag

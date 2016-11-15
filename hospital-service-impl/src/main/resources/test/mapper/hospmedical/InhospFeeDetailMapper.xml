@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanniuh.hospmedical.inhospfeedetail.dao.InhospFeeDetailMapper">
-    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.inhospfeedetail.InhospFeeDetail">
+<mapper namespace="cn.joinhealth.hospmedical.inhospfeedetail.dao.InhospFeeDetailMapper">
+    <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.inhospfeedetail.InhospFeeDetail">
         <id column="DEAL_NO" jdbcType="VARCHAR" property="dealNo"/>
         <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
         <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo"/>
@@ -22,7 +22,7 @@
     FEE_CATEG_NAME, DRUG_CATALOG_TYPE, DRUG_AMOUNT, DRUG_UNIT, DRUG_UNIT_PRICE, SELF_PERCENT, 
     TOTAL_MONEY
   </sql>
-    <select id="selectByParams" parameterType="com.lanniuh.hospmedical.model.inhospfeedetail.InhospFeeDetailReq"
+    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.inhospfeedetail.InhospFeeDetailReq"
             resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

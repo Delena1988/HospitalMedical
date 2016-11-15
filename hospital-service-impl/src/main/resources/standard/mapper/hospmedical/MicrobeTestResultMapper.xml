@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanniuh.hospmedical.microbetestresult.dao.MicrobeTestResultMapper">
-  <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.microbetestresult.MicrobeTestResult">
+<mapper namespace="cn.joinhealth.hospmedical.microbetestresult.dao.MicrobeTestResultMapper">
+  <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.microbetestresult.MicrobeTestResult">
     <id column="REPORT_NO" jdbcType="VARCHAR" property="reportNo" />
     <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
     <result column="TEST_RESULT_NO" jdbcType="VARCHAR" property="testResultNo" />
@@ -22,7 +22,7 @@
     TEST_RESULT_VALUE, TEST_RESULT_VALUE_UNIT, TEST_QUALITATIVE_RESULT, TEST_METHOD, 
     REFERENCE_RANGES, REFERENCE_UPPER_LIMIT, REFERENCE_LOWER_LIMIT, NOTE
   </sql>
-  <select id="selectByParams" parameterType="com.lanniuh.hospmedical.model.microbetestresult.MicrobeTestResultReq" resultMap="BaseResultMap">
+  <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.microbetestresult.MicrobeTestResultReq" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from v_jh_microbetestresult

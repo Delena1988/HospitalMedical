@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanniuh.hospmedical.cardnoinfo.dao.CardNoInfoMapper">
-    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.cardnoinfo.CardNoInfo">
+<mapper namespace="cn.joinhealth.hospmedical.cardnoinfo.dao.CardNoInfoMapper">
+    <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfo">
         <id column="VISIT_CARD_NO" jdbcType="VARCHAR" property="visitCardNo"/>
         <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
         <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
@@ -16,7 +16,7 @@
     OPEN_DATE
   </sql>
 
-    <select id="selectByPatIndexNo" parameterType="com.lanniuh.hospmedical.model.cardnoinfo.CardNoInfoReq"
+    <select id="selectByPatIndexNo" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
             resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -30,7 +30,7 @@
         </if>
     </select>
 
-    <select id="selectByIdNumberAndPatName" parameterType="com.lanniuh.hospmedical.model.cardnoinfo.CardNoInfoReq"
+    <select id="selectByIdNumberAndPatName" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
             resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -44,7 +44,7 @@
         </if>
     </select>
 
-    <select id="selectByCardNoAndPatName" parameterType="com.lanniuh.hospmedical.model.cardnoinfo.CardNoInfoReq"
+    <select id="selectByCardNoAndPatName" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
             resultMap="BaseResultMap">
         select ORGAN_CODE,
         VISIT_CARD_NO as INDEX_NO,
@@ -71,7 +71,7 @@
         </if>
     </select>
 
-    <select id="selectByCardNoAndCardType" parameterType="com.lanniuh.hospmedical.model.cardnoinfo.CardNoInfoReq"
+    <select id="selectByCardNoAndCardType" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
             resultMap="BaseResultMap">
         select ORGAN_CODE,
         VISIT_CARD_NO as INDEX_NO,

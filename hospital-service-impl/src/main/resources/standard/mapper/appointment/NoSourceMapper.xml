@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanniuh.appointment.nosource.dao.NoSourceMapper">
-  <resultMap id="BaseResultMap" type="com.lanniuh.appointment.model.nosource.NoSource">
+<mapper namespace="cn.joinhealth.appointment.nosource.dao.NoSourceMapper">
+  <resultMap id="BaseResultMap" type="cn.joinhealth.appointment.model.nosource.NoSource">
     <id column="SCHEDULING_NO" jdbcType="VARCHAR" property="schedulingNo" />
     <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
     <result column="VISIT_DATE" jdbcType="VARCHAR" property="visitDate" />
@@ -13,7 +13,7 @@
   <sql id="Base_Column_List">
     SCHEDULING_NO, ORGAN_CODE, VISIT_DATE, AP, SEQ_NO, VISIT_TIME, STATUS
   </sql>
-  <select id="selectByParams" parameterType="com.lanniuh.appointment.model.nosource.NoSourceReq" resultMap="BaseResultMap">
+  <select id="selectByParams" parameterType="cn.joinhealth.appointment.model.nosource.NoSourceReq" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from v_jh_nosource

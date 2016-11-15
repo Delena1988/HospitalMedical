@@ -82,7 +82,7 @@
         <property name="maxStatements" value="${interview.jdbc.maxStatements}"/>
     </bean>
 
-    <bean id="multipleDataSource" class="com.lanniuh.util.MultipleDataSource">
+    <bean id="multipleDataSource" class="cn.joinhealth.util.MultipleDataSource">
         <property name="defaultTargetDataSource" ref="dataSource-his"/>
         <property name="targetDataSources">
             <map>
@@ -104,6 +104,6 @@
 
     <!-- mybatis.spring自动映射 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.lanniuh.hospmedical.*.dao"/>
+        <property name="basePackage" value="cn.joinhealth.hospmedical.*.dao"/>
     </bean>
 </beans>

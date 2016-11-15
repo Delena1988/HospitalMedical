@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanniuh.hospmedical.filingpatient.dao.FilingPatientMapper">
-    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.filingpatient.FilingPatient">
+<mapper namespace="cn.joinhealth.hospmedical.filingpatient.dao.FilingPatientMapper">
+    <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.filingpatient.FilingPatient">
         <id column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
         <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
         <result column="VISIT_CARD_NO" jdbcType="VARCHAR" property="visitCardNo"/>
@@ -32,7 +32,7 @@
     MOBILE_NO, EXAM_DATE, EXAM_RESULT, EXAM_ADVICE, REPORT_DR, REPORT_DATE, CHECK_DR, 
     CHECK_DATE, EXAM_TYPE, AGE
   </sql>
-    <select id="selectByParamsUnpaged" parameterType="com.lanniuh.hospmedical.model.filingpatient.FilingPatientReq"
+    <select id="selectByParamsUnpaged" parameterType="cn.joinhealth.hospmedical.model.filingpatient.FilingPatientReq"
             resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -67,7 +67,7 @@
         </if>
     </select>
 
-    <select id="selectByParamsPaged" parameterType="com.lanniuh.hospmedical.model.filingpatient.FilingPatientReq"
+    <select id="selectByParamsPaged" parameterType="cn.joinhealth.hospmedical.model.filingpatient.FilingPatientReq"
             resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

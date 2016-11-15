@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanniuh.hospmedical.signedpatientinfo.dao.SignedPatientInfoMapper">
-    <resultMap id="BaseResultMap" type="com.lanniuh.hospmedical.model.signedpatientinfo.SignedPatientInfo">
+<mapper namespace="cn.joinhealth.hospmedical.signedpatientinfo.dao.SignedPatientInfoMapper">
+    <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.signedpatientinfo.SignedPatientInfo">
         <id column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
         <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
         <result column="VISIT_CARD_NO" jdbcType="VARCHAR" property="visitCardNo"/>
@@ -25,7 +25,7 @@
     SIGNED_VALID_END_DATE, DIAG_NAME
   </sql>
     <select id="selectByParamsPaged"
-            parameterType="com.lanniuh.hospmedical.model.signedpatientinfo.SignedPatientInfoReq"
+            parameterType="cn.joinhealth.hospmedical.model.signedpatientinfo.SignedPatientInfoReq"
             resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
