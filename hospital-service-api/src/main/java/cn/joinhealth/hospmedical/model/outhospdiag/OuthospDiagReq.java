@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.outhospdiag;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 门诊诊断请求
+ */
 public class OuthospDiagReq implements Serializable{
     private static final long serialVersionUID = -3418000426380577397L;
     private String sysCode;//1-hug 2-interview

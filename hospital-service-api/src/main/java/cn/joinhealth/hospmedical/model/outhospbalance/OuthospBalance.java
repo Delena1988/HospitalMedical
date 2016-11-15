@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.outhospbalance;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 门诊费用结算
+ */
 public class OuthospBalance implements Serializable {
     private static final long serialVersionUID = -8891879920850364576L;
     private String organCode;//组织机构代码

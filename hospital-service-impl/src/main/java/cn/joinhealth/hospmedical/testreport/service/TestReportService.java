@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface TestReportService {
+    /**
+     * @Description:查询检验报告
+     * @param: [testReportReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.testreport.TestReport>
+     */
     List<TestReport> selectByParams(TestReportReq testReportReq);
 }

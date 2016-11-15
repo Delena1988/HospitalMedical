@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.patientinfo;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 患者基本信息
+ */
 public class PatientInfo implements Serializable{
     private static final long serialVersionUID = 1582209560728850185L;
     private String organCode;//组织机构代码

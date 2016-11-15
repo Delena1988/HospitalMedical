@@ -8,5 +8,10 @@ import cn.joinhealth.hospmedical.model.inhospfee.InhospFeeReq;
  * 16/11/4.
  */
 public interface InhospFeeService {
+    /**
+     * @Description:查询住院费用信息
+     * @param: [inhospFeeReq]
+     * @return: cn.joinhealth.hospmedical.model.inhospfee.InhospFee
+     */
     InhospFee selectByParams(InhospFeeReq inhospFeeReq);
 }

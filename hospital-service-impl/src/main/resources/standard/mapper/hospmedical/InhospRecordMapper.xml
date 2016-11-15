@@ -68,321 +68,317 @@
     OUTCOME_NAME, DISCHARGE_METHOD_CODE, DISCHARGE_METHOD_NAME, PHYSICAL_EXAM, TREATMENT_ADVICE, 
     DISEASES_REPORTED_FLAG, INHOSP_STATUS
   </sql>
-    <select id="selectByParamsUnpaged" parameterType="cn.joinhealth.hospmedical.model.inhosprecord.InhospRecordReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_inhosprecord
-        where 1 = 1
+    <select id="selectByParamsUnpaged" parameterType="cn.joinhealth.hospmedical.model.inhosprecord.InhospRecordReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_inhosprecord
+        WHERE 1 = 1
         <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-            and PAT_INDEX_NO = #{patIndexNo}
+            AND PAT_INDEX_NO = #{patIndexNo}
         </if>
         <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
-            and VISIT_CARD_NO = #{visitCardNo}
+            AND VISIT_CARD_NO = #{visitCardNo}
         </if>
         <if test="inhospNo != null and !''.equals(inhospNo.trim())">
-            and INHOSP_NO = #{inhospNo}
+            AND INHOSP_NO = #{inhospNo}
         </if>
         <if test="indexNo != null and !''.equals(indexNo.trim())">
-            and INHOSP_NO = #{indexNo}
+            AND INHOSP_NO = #{indexNo}
         </if>
         <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-            and INHOSP_SERIAL_NO = #{inhospSerialNo}
+            AND INHOSP_SERIAL_NO = #{inhospSerialNo}
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME = #{patName}
+            AND PAT_NAME = #{patName}
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER = #{idNumber}
+            AND ID_NUMBER = #{idNumber}
         </if>
         <if test="mobileNo != null and !''.equals(mobileNo.trim())">
-            and MOBILE_NO = #{mobileNo}
+            AND MOBILE_NO = #{mobileNo}
         </if>
         <if test="deptName != null and !''.equals(deptName.trim())">
-            and DEPT_NAME = #{deptName}
+            AND DEPT_NAME = #{deptName}
         </if>
         <if test="deptCode.size() &gt; 0">
-            and DEPT_CODE in
+            AND DEPT_CODE IN
             <foreach item="item" index="index" collection="deptCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="wardName != null and !''.equals(wardName.trim())">
-            and WARD_NAME = #{wardName}
+            AND WARD_NAME = #{wardName}
         </if>
         <if test="wardCode.size() &gt; 0">
-            and WARD_CODE in
+            AND WARD_CODE IN
             <foreach item="item" index="index" collection="wardCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="sickroomNo != null and !''.equals(sickroomNo.trim())">
-            and SICKROOM_NO = #{sickroomNo}
+            AND SICKROOM_NO = #{sickroomNo}
         </if>
         <if test="bedNo != null and !''.equals(bedNo.trim())">
-            and BED_NO = #{bedNo}
+            AND BED_NO = #{bedNo}
         </if>
         <if test="attendDrName != null and !''.equals(attendDrName.trim())">
-            and ATTEND_DR_NAME = #{attendDrName}
+            AND ATTEND_DR_NAME = #{attendDrName}
         </if>
         <if test="dischargeDiagName != null and !''.equals(dischargeDiagName.trim())">
-            and DISCHARGE_DIAG_NAME = #{dischargeDiagName}
+            AND DISCHARGE_DIAG_NAME = #{dischargeDiagName}
         </if>
         <if test="dischargeDiagCode.size() &gt; 0">
-            and DISCHARGE_DIAG_CODE in
+            AND DISCHARGE_DIAG_CODE IN
             <foreach item="item" index="index" collection="dischargeDiagCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="admitDiagName != null and !''.equals(admitDiagName.trim())">
-            and ADMIT_DIAG_NAME = #{admitDiagName}
+            AND ADMIT_DIAG_NAME = #{admitDiagName}
         </if>
         <if test="admitDiagCode.size() &gt; 0">
-            and ADMIT_DIAG_CODE in
+            AND ADMIT_DIAG_CODE IN
             <foreach item="item" index="index" collection="admitDiagCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="inhospStatus == 'true'.toString()">
-            and INHOSP_STATUS = '3'
+            AND INHOSP_STATUS = '3'
         </if>
         <if test="inhospStatus == 'false'.toString()">
-            and INHOSP_STATUS = '1'
+            AND INHOSP_STATUS = '1'
         </if>
         <if test="inhospStatus == 'all'.toString()">
-            and (INHOSP_STATUS = '3' OR INHOSP_STATUS = '1')
+            AND (INHOSP_STATUS = '3' OR INHOSP_STATUS = '1')
         </if>
         <if test="dischargeStartDate != null and !''.equals(dischargeStartDate)">
-            and DISCHARGE_DATE &gt;= #{dischargeStartDate}
+            AND DISCHARGE_DATE &gt;= #{dischargeStartDate}
         </if>
         <if test="dischargeEndDate != null and !''.equals(dischargeEndDate)">
-            and DISCHARGE_DATE &lt;= #{dischargeEndDate}
+            AND DISCHARGE_DATE &lt;= #{dischargeEndDate}
         </if>
         <if test="admitStartDate != null and !''.equals(admitStartDate)">
-            and ADMIT_DATE &gt;= #{admitStartDate}
+            AND ADMIT_DATE &gt;= #{admitStartDate}
         </if>
         <if test="admitEndDate != null and !''.equals(admitEndDate)">
-            and ADMIT_DATE &lt;= #{admitEndDate}
+            AND ADMIT_DATE &lt;= #{admitEndDate}
         </if>
     </select>
-    <select id="selectByParamsPaged" parameterType="cn.joinhealth.hospmedical.model.inhosprecord.InhospRecordReq"
-            resultMap="BaseResultMap">
-        select
+    <select id="selectByParamsPaged" parameterType="cn.joinhealth.hospmedical.model.inhosprecord.InhospRecordReq" resultMap="BaseResultMap">
+        SELECT
         <include refid="Base_Column_List"/>
-        from v_jh_inhosprecord
-        where 1 = 1
+        FROM v_jh_inhosprecord
+        WHERE 1 = 1
         <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-            and PAT_INDEX_NO = #{patIndexNo}
+            AND PAT_INDEX_NO = #{patIndexNo}
         </if>
         <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
-            and VISIT_CARD_NO = #{visitCardNo}
+            AND VISIT_CARD_NO = #{visitCardNo}
         </if>
         <if test="inhospNo != null and !''.equals(inhospNo.trim())">
-            and INHOSP_NO = #{inhospNo}
+            AND INHOSP_NO = #{inhospNo}
         </if>
         <if test="indexNo != null and !''.equals(indexNo.trim())">
-            and INHOSP_NO = #{indexNo}
+            AND INHOSP_NO = #{indexNo}
         </if>
         <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-            and INHOSP_SERIAL_NO = #{inhospSerialNo}
+            AND INHOSP_SERIAL_NO = #{inhospSerialNo}
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME = #{patName}
+            AND PAT_NAME = #{patName}
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER = #{idNumber}
+            AND ID_NUMBER = #{idNumber}
         </if>
         <if test="mobileNo != null and !''.equals(mobileNo.trim())">
-            and MOBILE_NO = #{mobileNo}
+            AND MOBILE_NO = #{mobileNo}
         </if>
         <if test="deptName != null and !''.equals(deptName.trim())">
-            and DEPT_NAME = #{deptName}
+            AND DEPT_NAME = #{deptName}
         </if>
         <if test="deptCode.size() &gt; 0">
-            and DEPT_CODE in
+            AND DEPT_CODE IN
             <foreach item="item" index="index" collection="deptCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="wardName != null and !''.equals(wardName.trim())">
-            and WARD_NAME = #{wardName}
+            AND WARD_NAME = #{wardName}
         </if>
         <if test="wardCode.size() &gt; 0">
-            and WARD_CODE in
+            AND WARD_CODE IN
             <foreach item="item" index="index" collection="wardCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="sickroomNo != null and !''.equals(sickroomNo.trim())">
-            and SICKROOM_NO = #{sickroomNo}
+            AND SICKROOM_NO = #{sickroomNo}
         </if>
         <if test="bedNo != null and !''.equals(bedNo.trim())">
-            and BED_NO = #{bedNo}
+            AND BED_NO = #{bedNo}
         </if>
         <if test="attendDrName != null and !''.equals(attendDrName.trim())">
-            and ATTEND_DR_NAME = #{attendDrName}
+            AND ATTEND_DR_NAME = #{attendDrName}
         </if>
         <if test="dischargeDiagName != null and !''.equals(dischargeDiagName.trim())">
-            and DISCHARGE_DIAG_NAME = #{dischargeDiagName}
+            AND DISCHARGE_DIAG_NAME = #{dischargeDiagName}
         </if>
         <if test="dischargeDiagCode.size() &gt; 0">
-            and DISCHARGE_DIAG_CODE in
+            AND DISCHARGE_DIAG_CODE IN
             <foreach item="item" index="index" collection="dischargeDiagCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="admitDiagName != null and !''.equals(admitDiagName.trim())">
-            and ADMIT_DIAG_NAME = #{admitDiagName}
+            AND ADMIT_DIAG_NAME = #{admitDiagName}
         </if>
         <if test="admitDiagCode.size() &gt; 0">
-            and ADMIT_DIAG_CODE in
+            AND ADMIT_DIAG_CODE IN
             <foreach item="item" index="index" collection="admitDiagCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="inhospStatus == 'true'.toString()">
-            and INHOSP_STATUS = '3'
+            AND INHOSP_STATUS = '3'
         </if>
         <if test="inhospStatus == 'false'.toString()">
-            and INHOSP_STATUS = '1'
+            AND INHOSP_STATUS = '1'
         </if>
         <if test="inhospStatus == 'all'.toString()">
-            and (INHOSP_STATUS = '3' OR INHOSP_STATUS = '1')
+            AND (INHOSP_STATUS = '3' OR INHOSP_STATUS = '1')
         </if>
         <if test="dischargeStartDate != null and !''.equals(dischargeStartDate)">
-            and DISCHARGE_DATE &gt;= #{dischargeStartDate}
+            AND DISCHARGE_DATE &gt;= #{dischargeStartDate}
         </if>
         <if test="dischargeEndDate != null and !''.equals(dischargeEndDate)">
-            and DISCHARGE_DATE &lt;= #{dischargeEndDate}
+            AND DISCHARGE_DATE &lt;= #{dischargeEndDate}
         </if>
         <if test="admitStartDate != null and !''.equals(admitStartDate)">
-            and ADMIT_DATE &gt;= #{admitStartDate}
+            AND ADMIT_DATE &gt;= #{admitStartDate}
         </if>
         <if test="admitEndDate != null and !''.equals(admitEndDate)">
-            and ADMIT_DATE &lt;= #{admitEndDate}
+            AND ADMIT_DATE &lt;= #{admitEndDate}
         </if>
         <if test="inhospStatus == 'true'.toString()">
-            order by DISCHARGE_DATE desc,BIRTH_DATE
+            ORDER BY DISCHARGE_DATE DESC,BIRTH_DATE
         </if>
         <if test="inhospStatus == 'false'.toString()">
             <if test="sysCode =='1'.toString()">
-                order by WARD_CODE,BED_NO
+                ORDER BY WARD_CODE,BED_NO
             </if>
             <if test="sysCode =='2'.toString()">
-                order by ADMIT_DATE desc,BIRTH_DATE
+                ORDER BY ADMIT_DATE DESC,BIRTH_DATE
             </if>
         </if>
         <if test="dischargeStatus == 'all'.toString()">
-            order by ADMIT_DATE desc,BIRTH_DATE
+            ORDER BY ADMIT_DATE DESC,BIRTH_DATE
         </if>
     </select>
-    <select id="selectStatistics" parameterType="cn.joinhealth.hospmedical.model.inhosprecord.InhospRecordReq"
-            resultType="int">
-        select
-        count(*)
-        from v_jh_inhosprecord
-        where 1 = 1
+    <select id="selectStatistics" parameterType="cn.joinhealth.hospmedical.model.inhosprecord.InhospRecordReq" resultType="int">
+        SELECT count(*)
+        FROM v_jh_inhosprecord
+        WHERE 1 = 1
         <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-            and PAT_INDEX_NO = #{patIndexNo}
+            AND PAT_INDEX_NO = #{patIndexNo}
         </if>
         <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
-            and VISIT_CARD_NO = #{visitCardNo}
+            AND VISIT_CARD_NO = #{visitCardNo}
         </if>
         <if test="inhospNo != null and !''.equals(inhospNo.trim())">
-            and INHOSP_NO = #{inhospNo}
+            AND INHOSP_NO = #{inhospNo}
         </if>
         <if test="indexNo != null and !''.equals(indexNo.trim())">
-            and INHOSP_NO = #{indexNo}
+            AND INHOSP_NO = #{indexNo}
         </if>
         <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-            and INHOSP_SERIAL_NO = #{inhospSerialNo}
+            AND INHOSP_SERIAL_NO = #{inhospSerialNo}
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME = #{patName}
+            AND PAT_NAME = #{patName}
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER = #{idNumber}
+            AND ID_NUMBER = #{idNumber}
         </if>
         <if test="mobileNo != null and !''.equals(mobileNo.trim())">
-            and MOBILE_NO = #{mobileNo}
+            AND MOBILE_NO = #{mobileNo}
         </if>
         <if test="deptName != null and !''.equals(deptName.trim())">
-            and DEPT_NAME = #{deptName}
+            AND DEPT_NAME = #{deptName}
         </if>
         <if test="deptCode.size() &gt; 0">
-            and DEPT_CODE in
+            AND DEPT_CODE IN
             <foreach item="item" index="index" collection="deptCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="wardName != null and !''.equals(wardName.trim())">
-            and WARD_NAME = #{wardName}
+            AND WARD_NAME = #{wardName}
         </if>
         <if test="wardCode.size() &gt; 0">
-            and WARD_CODE in
+            AND WARD_CODE IN
             <foreach item="item" index="index" collection="wardCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="sickroomNo != null and !''.equals(sickroomNo.trim())">
-            and SICKROOM_NO = #{sickroomNo}
+            AND SICKROOM_NO = #{sickroomNo}
         </if>
         <if test="bedNo != null and !''.equals(bedNo.trim())">
-            and BED_NO = #{bedNo}
+            AND BED_NO = #{bedNo}
         </if>
         <if test="attendDrName != null and !''.equals(attendDrName.trim())">
-            and ATTEND_DR_NAME = #{attendDrName}
+            AND ATTEND_DR_NAME = #{attendDrName}
         </if>
         <if test="dischargeDiagName != null and !''.equals(dischargeDiagName.trim())">
-            and DISCHARGE_DIAG_NAME = #{dischargeDiagName}
+            AND DISCHARGE_DIAG_NAME = #{dischargeDiagName}
         </if>
         <if test="dischargeDiagCode.size() &gt; 0">
-            and DISCHARGE_DIAG_CODE in
+            AND DISCHARGE_DIAG_CODE IN
             <foreach item="item" index="index" collection="dischargeDiagCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="admitDiagName != null and !''.equals(admitDiagName.trim())">
-            and ADMIT_DIAG_NAME = #{admitDiagName}
+            AND ADMIT_DIAG_NAME = #{admitDiagName}
         </if>
         <if test="admitDiagCode.size() &gt; 0">
-            and ADMIT_DIAG_CODE in
+            AND ADMIT_DIAG_CODE IN
             <foreach item="item" index="index" collection="admitDiagCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="inhospStatus == 'true'.toString()">
-            and INHOSP_STATUS = '3'
+            AND INHOSP_STATUS = '3'
         </if>
         <if test="inhospStatus == 'false'.toString()">
-            and INHOSP_STATUS = '1'
+            AND INHOSP_STATUS = '1'
         </if>
         <if test="inhospStatus == 'all'.toString()">
-            and (INHOSP_STATUS = '3' OR INHOSP_STATUS = '1')
+            AND (INHOSP_STATUS = '3' OR INHOSP_STATUS = '1')
         </if>
         <if test="dischargeStartDate != null and !''.equals(dischargeStartDate)">
-            and DISCHARGE_DATE &gt;= #{dischargeStartDate}
+            AND DISCHARGE_DATE &gt;= #{dischargeStartDate}
         </if>
         <if test="dischargeEndDate != null and !''.equals(dischargeEndDate)">
-            and DISCHARGE_DATE &lt;= #{dischargeEndDate}
+            AND DISCHARGE_DATE &lt;= #{dischargeEndDate}
         </if>
         <if test="admitStartDate != null and !''.equals(admitStartDate)">
-            and ADMIT_DATE &gt;= #{admitStartDate}
+            AND ADMIT_DATE &gt;= #{admitStartDate}
         </if>
         <if test="admitEndDate != null and !''.equals(admitEndDate)">
-            and ADMIT_DATE &lt;= #{admitEndDate}
+            AND ADMIT_DATE &lt;= #{admitEndDate}
         </if>
     </select>
 </mapper>

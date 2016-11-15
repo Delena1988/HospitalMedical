@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface RemainingNoSourceService {
+    /**
+     * @Description:查询剩余好远
+     * @param: [remainingNoSourceReq]
+     * @return: java.util.List<cn.joinhealth.appointment.model.remainingnosource.RemainingNoSource>
+     */
     List<RemainingNoSource> selectByParams(RemainingNoSourceReq remainingNoSourceReq);
 }

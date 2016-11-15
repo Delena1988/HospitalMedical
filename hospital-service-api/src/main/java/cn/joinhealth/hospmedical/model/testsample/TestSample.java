@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.testsample;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 检验样本
+ */
 public class TestSample implements Serializable {
     private static final long serialVersionUID = 1964006133969936171L;
     private String organCode;//组织机构代码

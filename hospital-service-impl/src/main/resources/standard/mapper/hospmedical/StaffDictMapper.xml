@@ -27,8 +27,8 @@
     SUBOR_DEPT_CODE, SUBOR_DEPT_NAME, INVALID_FLAG
   </sql>
   <select id="selectAll" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_staffdict
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_staffdict
   </select>
 </mapper>

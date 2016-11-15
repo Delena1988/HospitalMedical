@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.physicalexamreport;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 体检报告请求
+ */
 public class PhysicalExamReportReq implements Serializable{
     private static final long serialVersionUID = 6397607724078580787L;
     private String sysCode;//1-hug 2-interview

@@ -23,15 +23,15 @@
     ID_NUMBER, MOBILE_NO, VISIT_CARD_NO, STATUS, VISIT_DATE, TAKE_NO_TIME
   </sql>
   <select id="selectByParams" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_registerhistory
-    where 1 = 1
+    SELECT
+      <include refid="Base_Column_List"/>
+    FROM v_jh_registerhistory
+    WHERE 1 = 1
     <if test="startDate != null and !''.equals(startDate)">
-      and VISIT_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+      AND VISIT_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
     </if>
     <if test="endDate != null and !''.equals(endDate)">
-      and VISIT_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+      AND VISIT_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
     </if>
   </select>
 </mapper>

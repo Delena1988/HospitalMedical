@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.deptdict;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 科室字典请求
+ */
 public class DeptDictReq implements Serializable{
     private static final long serialVersionUID = 1091739191584871899L;
     private String sysCode;//1-hug 2-interview

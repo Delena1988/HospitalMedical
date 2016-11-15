@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface PhysicalExamPackageService {
+    /**
+     * @Description:查询体检套餐
+     * @param: []
+     * @return: java.util.List<cn.joinhealth.appointment.model.physicalexampackage.PhysicalExamPackage>
+     */
     List<PhysicalExamPackage> selectAll();
 }

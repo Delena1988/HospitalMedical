@@ -11,6 +11,17 @@ import java.util.List;
  * 16/11/4.
  */
 public interface SignsService {
+    /**
+     * @Description:查询体征信息  不分页
+     * @param: [signsReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.signs.Signs>
+     */
     List<Signs> selectByParamsUnpaged(SignsReq signsReq);
+
+    /**
+     * @Description:查询体征信息 分页
+     * @param: [signsReq]
+     * @return: com.github.pagehelper.Page<cn.joinhealth.hospmedical.model.signs.Signs>
+     */
     Page<Signs> selectByParamsPaged(SignsReq signsReq);
 }

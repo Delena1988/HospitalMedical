@@ -16,73 +16,70 @@
     OPEN_DATE
   </sql>
 
-    <select id="selectByPatIndexNo" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_cardnoinfo
-        where PAT_INDEX_NO = #{patIndexNo,jdbcType=VARCHAR}
+    <select id="selectByPatIndexNo" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_cardnoinfo
+        WHERE PAT_INDEX_NO = #{patIndexNo,jdbcType=VARCHAR}
         <if test="startDate != null and !''.equals(startDate)">
-            and OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
     </select>
 
-    <select id="selectByIdNumberAndPatName" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_cardnoinfo
-        where PAT_NAME = #{patName,jdbcType=VARCHAR} and ID_NUMBER = #{idNumber,jdbcType=VARCHAR}
+    <select id="selectByIdNumberAndPatName" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_cardnoinfo
+        WHERE PAT_NAME = #{patName,jdbcType=VARCHAR} AND ID_NUMBER = #{idNumber,jdbcType=VARCHAR}
         <if test="startDate != null and !''.equals(startDate)">
-            and OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
     </select>
 
-    <select id="selectByCardNoAndPatName" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
-            resultMap="BaseResultMap">
-        select ORGAN_CODE,
-        VISIT_CARD_NO as INDEX_NO,
-        '2' as INDEX_NO_TYPE,
-        PAT_INDEX_NO
-        from v_jh_cardnoinfo where VISIT_CARD_TYPE = '2' and PAT_NAME=#{patName} and VISIT_CARD_NO=#{visitCardNo}
+    <select id="selectByCardNoAndPatName" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq" resultMap="BaseResultMap">
+        SELECT ORGAN_CODE,
+          VISIT_CARD_NO AS INDEX_NO,
+          '2' AS INDEX_NO_TYPE,
+          PAT_INDEX_NO
+        FROM v_jh_cardnoinfo WHERE VISIT_CARD_TYPE = '2' AND PAT_NAME=#{patName} AND VISIT_CARD_NO=#{visitCardNo}
         <if test="startDate != null and !''.equals(startDate)">
-            and OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
-        union
-        select ORGAN_CODE,
-        VISIT_CARD_NO as INDEX_NO,
-        '1' as INDEX_NO_TYPE,
-        PAT_INDEX_NO
-        from v_jh_cardnoinfo where VISIT_CARD_TYPE = '1' and PAT_NAME=#{patName} and VISIT_CARD_NO=#{visitCardNo}
+        UNION
+        SELECT ORGAN_CODE,
+          VISIT_CARD_NO AS INDEX_NO,
+          '1' AS INDEX_NO_TYPE,
+          PAT_INDEX_NO
+        FROM v_jh_cardnoinfo WHERE VISIT_CARD_TYPE = '1' AND PAT_NAME=#{patName} AND VISIT_CARD_NO=#{visitCardNo}
         <if test="startDate != null and !''.equals(startDate)">
-            and OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
     </select>
 
     <select id="selectByCardNoAndCardType" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
             resultMap="BaseResultMap">
-        select ORGAN_CODE,
-        VISIT_CARD_NO as INDEX_NO,
-        #{indexNoType} as INDEX_NO_TYPE,
-        PAT_INDEX_NO
-        from v_jh_cardnoinfo where VISIT_CARD_NO=#{visitCardNo} and VISIT_CARD_TYPE = #{visitCardType}
+        SELECT ORGAN_CODE,
+          VISIT_CARD_NO AS INDEX_NO,
+          #{indexNoType} AS INDEX_NO_TYPE,
+          PAT_INDEX_NO
+        FROM v_jh_cardnoinfo WHERE VISIT_CARD_NO=#{visitCardNo} AND VISIT_CARD_TYPE = #{visitCardType}
         <if test="startDate != null and !''.equals(startDate)">
-            and OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
     </select>
 </mapper>

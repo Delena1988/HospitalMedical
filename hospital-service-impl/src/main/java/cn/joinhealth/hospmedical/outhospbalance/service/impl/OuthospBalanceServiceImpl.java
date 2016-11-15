@@ -21,6 +21,7 @@ import java.util.List;
 public class OuthospBalanceServiceImpl implements OuthospBalanceService {
     @Autowired
     private OuthospBalanceMapper outhospBalanceMapper;
+
     @Override
     public List<OuthospBalance> selectByParams(OuthospBalanceReq outhospBalanceReq) {
         List<OuthospBalance> outhospBalanceList = outhospBalanceMapper.selectByParams(outhospBalanceReq);

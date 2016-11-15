@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.signs;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 体征信息请求
+ */
 public class SignsReq implements Serializable {
     private static final long serialVersionUID = 4877161436307046249L;
     private String sysCode;//1-hug 2-interview

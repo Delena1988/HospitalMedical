@@ -42,105 +42,103 @@
     RECEPT_TREAT_DR_NAME, VISIT_DEPT_CODE, VISIT_DEPT_NAME, DIAG_CODE, DIAG_NAME, PHYSICAL_EXAM, 
     TREATMENT_ADVICE, DISEASES_REPORTED_FLAG
   </sql>
-    <select id="selectByParamsUnpaged" parameterType="cn.joinhealth.hospmedical.model.visitinfo.VisitInfoReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_visitinfo
-        where 1 = 1
+    <select id="selectByParamsUnpaged" parameterType="cn.joinhealth.hospmedical.model.visitinfo.VisitInfoReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_visitinfo
+        WHERE 1 = 1
         <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
-            and VISIT_CARD_NO=#{visitCardNo}
+            AND VISIT_CARD_NO=#{visitCardNo}
         </if>
         <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-            and OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+            AND OUTHOSP_SERIAL_NO=#{outhospSerialNo}
         </if>
         <if test="outhospNo != null and !''.equals(outhospNo.trim())">
-            and OUTHOSP_NO=#{outhospNo}
+            AND OUTHOSP_NO=#{outhospNo}
         </if>
         <if test="indexNo != null and !''.equals(indexNo.trim())">
-            and VISIT_CARD_NO=#{indexNo}
+            AND VISIT_CARD_NO=#{indexNo}
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME = #{patName}
+            AND PAT_NAME = #{patName}
         </if>
         <if test="receptTreatDrName != null and !''.equals(receptTreatDrName.trim())">
-            and RECEPT_TREAT_DR_NAME = #{receptTreatDrName}
+            AND RECEPT_TREAT_DR_NAME = #{receptTreatDrName}
         </if>
         <if test="visitDeptName != null and !''.equals(visitDeptName.trim())">
-            and VISIT_DEPT_NAME = #{visitDeptName}
+            AND VISIT_DEPT_NAME = #{visitDeptName}
         </if>
         <if test="visitDeptCode.size() &gt; 0">
-            and VISIT_DEPT_CODE in
+            AND VISIT_DEPT_CODE IN
             <foreach item="item" index="index" collection="visitDeptCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="diagName != null and !''.equals(diagName.trim())">
-            and DIAG_NAME like '%'||'${diagName}'||'%')
+            AND DIAG_NAME LIKE '%'||'${diagName}'||'%')
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER = #{idNumber}
+            AND ID_NUMBER = #{idNumber}
         </if>
         <if test="mobileNo != null and !''.equals(mobileNo.trim())">
-            and MOBILE_NO = #{mobileNo}
+            AND MOBILE_NO = #{mobileNo}
         </if>
         <if test="startDate != null and !''.equals(startDate)">
-            and VISIT_DATE &gt;= #{startDate}
+            AND VISIT_DATE &gt;= #{startDate}
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and VISIT_DATE &lt; #{endDate}
+            AND VISIT_DATE &lt; #{endDate}
         </if>
     </select>
 
-    <select id="selectByParamsPaged" parameterType="cn.joinhealth.hospmedical.model.visitinfo.VisitInfoReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_visitinfo
-        where 1 = 1
+    <select id="selectByParamsPaged" parameterType="cn.joinhealth.hospmedical.model.visitinfo.VisitInfoReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_visitinfo
+        WHERE 1 = 1
         <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
-            and VISIT_CARD_NO=#{visitCardNo}
+            AND VISIT_CARD_NO=#{visitCardNo}
         </if>
         <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-            and OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+            AND OUTHOSP_SERIAL_NO=#{outhospSerialNo}
         </if>
         <if test="outhospNo != null and !''.equals(outhospNo.trim())">
-            and OUTHOSP_NO=#{outhospNo}
+            AND OUTHOSP_NO=#{outhospNo}
         </if>
         <if test="indexNo != null and !''.equals(indexNo.trim())">
-            and VISIT_CARD_NO=#{indexNo}
+            AND VISIT_CARD_NO=#{indexNo}
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME = #{patName}
+            AND PAT_NAME = #{patName}
         </if>
         <if test="receptTreatDrName != null and !''.equals(receptTreatDrName.trim())">
-            and RECEPT_TREAT_DR_NAME = #{receptTreatDrName}
+            AND RECEPT_TREAT_DR_NAME = #{receptTreatDrName}
         </if>
         <if test="visitDeptName != null and !''.equals(visitDeptName.trim())">
-            and VISIT_DEPT_NAME = #{visitDeptName}
+            AND VISIT_DEPT_NAME = #{visitDeptName}
         </if>
         <if test="visitDeptCode.size() &gt; 0">
-            and VISIT_DEPT_CODE in
+            AND VISIT_DEPT_CODE IN
             <foreach item="item" index="index" collection="visitDeptCode"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="diagName != null and !''.equals(diagName.trim())">
-            and DIAG_NAME like '%'||'${diagName}'||'%')
+            AND DIAG_NAME LIKE '%'||'${diagName}'||'%')
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER = #{idNumber}
+            AND ID_NUMBER = #{idNumber}
         </if>
         <if test="mobileNo != null and !''.equals(mobileNo.trim())">
-            and MOBILE_NO = #{mobileNo}
+            AND MOBILE_NO = #{mobileNo}
         </if>
         <if test="startDate != null and !''.equals(startDate)">
-            and VISIT_DATE &gt;= #{startDate}
+            AND VISIT_DATE &gt;= #{startDate}
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and VISIT_DATE &lt; #{endDate}
+            AND VISIT_DATE &lt; #{endDate}
         </if>
         ORDER BY VISIT_DATE DESC
     </select>

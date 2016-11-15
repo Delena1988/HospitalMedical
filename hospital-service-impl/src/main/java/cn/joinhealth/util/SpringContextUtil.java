@@ -9,6 +9,7 @@ import java.util.Locale;
 /**
  * Created by linjian
  * 16/9/8.
+ * 多线程中获取bean
  */
 public class SpringContextUtil implements ApplicationContextAware {
     private static ApplicationContext context = null;

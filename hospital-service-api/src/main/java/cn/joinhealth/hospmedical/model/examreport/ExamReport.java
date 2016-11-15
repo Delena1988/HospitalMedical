@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.examreport;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 检查报告
+ */
 public class ExamReport implements Serializable {
     private static final long serialVersionUID = 2890065528661930901L;
     private String organCode;//组织机构代码

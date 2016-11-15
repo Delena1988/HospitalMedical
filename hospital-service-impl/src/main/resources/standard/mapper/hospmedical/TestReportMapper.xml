@@ -37,52 +37,51 @@
     EQUIPMENT_NAME, APPLY_DATE, APPLY_DEPT_CODE, APPLY_DEPT_NAME, APPLY_DR_CODE, APPLY_DR_NAME, 
     EXECUTE_DATE, REPORT_DATE, NOTE
   </sql>
-    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.testreport.TestReportReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_testreport
-        where REPORT_NO = #{reportNo,jdbcType=VARCHAR}
+    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.testreport.TestReportReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_testreport
+        WHERE REPORT_NO = #{reportNo,jdbcType=VARCHAR}
         <if test="barcodeNo.size() &gt; 0">
-            and BARCODE_NO in
+            AND BARCODE_NO IN
             <foreach item="item" index="index" collection="barcodeNo"
                      open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>
         <if test="requisitionNo != null and !''.equals(requisitionNo.trim())">
-            and REQUISITION_NO=#{requisitionNo}
+            AND REQUISITION_NO=#{requisitionNo}
         </if>
         <if test="requisitionNoItem != null and !''.equals(requisitionNoItem.trim())">
-            and REQUISITION_NO_ITEM=#{requisitionNoItem}
+            AND REQUISITION_NO_ITEM=#{requisitionNoItem}
         </if>
         <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-            and PAT_INDEX_NO=#{patIndexNo}
+            AND PAT_INDEX_NO=#{patIndexNo}
         </if>
         <if test="outhospNo != null and !''.equals(outhospNo.trim())">
-            and OUTHOSP_NO=#{outhospNo}
+            AND OUTHOSP_NO=#{outhospNo}
         </if>
         <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-            and OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+            AND OUTHOSP_SERIAL_NO=#{outhospSerialNo}
         </if>
         <if test="inhospNo != null and !''.equals(inhospNo.trim())">
-            and INHOSP_NO=#{inhospNo}
+            AND INHOSP_NO=#{inhospNo}
         </if>
         <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-            and INHOSP_SERIAL_NO=#{inhospSerialNo}
+            AND INHOSP_SERIAL_NO=#{inhospSerialNo}
         </if>
         <if test="applyDrName != null and !''.equals(applyDrName.trim())">
-            and APPLY_DR_NAME=#{applyDrName}
+            AND APPLY_DR_NAME=#{applyDrName}
         </if>
         <if test="applyDeptName != null and !''.equals(applyDeptName.trim())">
-            and APPLY_DEPT_NAME=#{applyDrName}
+            AND APPLY_DEPT_NAME=#{applyDrName}
         </if>
         <if test="startDate != null and !''.equals(startDate)">
-            and APPLY_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            AND APPLY_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and APPLY_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            AND APPLY_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
-        order by REPORT_DATE desc
+        ORDER BY REPORT_DATE DESC
     </select>
 </mapper>

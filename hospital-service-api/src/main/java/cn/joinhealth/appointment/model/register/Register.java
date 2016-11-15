@@ -2,6 +2,11 @@ package cn.joinhealth.appointment.model.register;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 预约挂号
+ */
 public class Register implements Serializable{
 	private static final long serialVersionUID = 2144926158584388649L;
 	private String organCode;//组织机构代码

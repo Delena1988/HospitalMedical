@@ -14,9 +14,9 @@
     PACKAGE_NO, ORGAN_CODE, ITEM_CODE, ITEM_NAME, ITEM_TYPE, ITEM_CONTENT, ITEM_MEANING
   </sql>
   <select id="selectByParams" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_physicalexampackagedetail
-    where PACKAGE_NO = #{packageNo}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_physicalexampackagedetail
+    WHERE PACKAGE_NO = #{packageNo}
   </select>
 </mapper>

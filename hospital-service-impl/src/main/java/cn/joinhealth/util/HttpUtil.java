@@ -190,6 +190,11 @@ public class HttpUtil {
         return result;
     }
 
+    /**
+     * 关闭资源
+     * @param out
+     * @param in
+     */
     private static void closeResouce(PrintWriter out ,BufferedReader in){
         try {
             if (out != null) {

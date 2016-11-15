@@ -2,7 +2,8 @@ package cn.joinhealth.constant;
 
 /**
  * Created by linjian
- * 16/11/9.
+ * 16/11/15
+ * 常量
  */
 public class Constant {
     public static final String RESULT_CODE_SUCCESS = "1";//返回代码  成功

@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.inhosprecord;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 住院记录
+ */
 public class InhospRecord implements Serializable {
     private static final long serialVersionUID = -6531188812438812227L;
     private String organCode;//组织机构代码

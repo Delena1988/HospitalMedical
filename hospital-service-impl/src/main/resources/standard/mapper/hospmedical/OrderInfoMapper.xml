@@ -25,18 +25,18 @@
     PRES_VALID_DAY, PRES_CATEG_CODE, PRES_CATEG_NAME, CHARGE_FLAG, NOTE
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.orderinfo.OrderInfoReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_orderinfo
-    where CHARGE_FLAG = '1'
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_orderinfo
+    WHERE CHARGE_FLAG = '1'
     <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-      and OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+      AND OUTHOSP_SERIAL_NO=#{outhospSerialNo}
     </if>
     <if test="startDate != null and !''.equals(startDate)">
-      and PRES_ORDER_DATE &gt;= #{startDate}
+      AND PRES_ORDER_DATE &gt;= #{startDate}
     </if>
     <if test="endDate != null and !''.equals(endDate)">
-      and PRES_ORDER_DATE &lt;= #{endDate}
+      AND PRES_ORDER_DATE &lt;= #{endDate}
     </if>
     ORDER BY PRES_ORDER_DATE DESC
   </select>

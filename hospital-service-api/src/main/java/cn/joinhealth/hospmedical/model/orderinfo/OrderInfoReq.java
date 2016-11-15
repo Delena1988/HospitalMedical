@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.orderinfo;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 处方信息请求
+ */
 public class OrderInfoReq implements Serializable{
     private static final long serialVersionUID = 7548576181453201265L;
     private String sysCode;//1-hug 2-interview

@@ -36,15 +36,15 @@
     SURGERY_DR_NAME, ANES_METHOD_CODE, ANES_METHOD_NAME, ANES_DR_CODE, ANES_DR_NAME
   </sql>
     <select id="selectByParams" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_surgeryrecord
-        where 1 = 1
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_surgeryrecord
+        WHERE 1 = 1
         <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-            and INHOSP_SERIAL_NO = #{inhospSerialNo}
+            AND INHOSP_SERIAL_NO = #{inhospSerialNo}
         </if>
         <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-            and OUTHOSP_SERIAL_NO = #{outhospSerialNo}
+            AND OUTHOSP_SERIAL_NO = #{outhospSerialNo}
         </if>
     </select>
 </mapper>

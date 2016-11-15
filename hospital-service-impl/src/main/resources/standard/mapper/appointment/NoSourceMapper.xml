@@ -14,9 +14,9 @@
     SCHEDULING_NO, ORGAN_CODE, VISIT_DATE, AP, SEQ_NO, VISIT_TIME, STATUS
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.appointment.model.nosource.NoSourceReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_nosource
-    where SCHEDULING_NO = #{schedulingNo}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_nosource
+    WHERE SCHEDULING_NO = #{schedulingNo}
   </select>
 </mapper>

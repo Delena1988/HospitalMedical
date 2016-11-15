@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface DiagDictService {
+    /**
+     * @Description:查询所有疾病信息
+     * @param: []
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.diagdict.DiagDict>
+     */
     List<DiagDict> selectAll();
 }

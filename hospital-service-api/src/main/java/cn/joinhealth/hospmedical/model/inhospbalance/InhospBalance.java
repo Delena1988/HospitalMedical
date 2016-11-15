@@ -3,6 +3,11 @@ package cn.joinhealth.hospmedical.model.inhospbalance;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 住院费用结算
+ */
 public class InhospBalance implements Serializable {
     private static final long serialVersionUID = 5541122398407272770L;
     private String organCode;//组织机构代码

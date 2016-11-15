@@ -20,9 +20,9 @@
     NORMAL_FLAG
   </sql>
   <select id="selectByParams" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    SELECT
     <include refid="Base_Column_List" />
-    from v_jh_testresult
-    where REPORT_NO = #{reportNo} order by TEST_RESULT_NO
+    FROM v_jh_testresult
+    WHERE REPORT_NO = #{reportNo} ORDER BY TEST_RESULT_NO
   </select>
 </mapper>

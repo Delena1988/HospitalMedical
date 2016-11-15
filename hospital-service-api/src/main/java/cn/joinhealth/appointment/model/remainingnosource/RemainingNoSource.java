@@ -2,6 +2,11 @@ package cn.joinhealth.appointment.model.remainingnosource;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 剩余号源
+ */
 public class RemainingNoSource implements Serializable {
     private static final long serialVersionUID = -2491549966857772760L;
     private String organCode;//组织机构代码

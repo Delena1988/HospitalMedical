@@ -25,14 +25,14 @@
     SELF_PERCENT, TOTAL_MONEY, VALUATION_FLAG
   </sql>
     <select id="selectByParams" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_outhospfeedetail
-        where DEAL_NO in
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_outhospfeedetail
+        WHERE DEAL_NO IN
         <foreach item="item" index="index" collection="dealNo"
                  open="(" separator="," close=")">
             #{item}
         </foreach>
-        order by DEAL_SUB_NO
+        ORDER BY DEAL_SUB_NO
     </select>
 </mapper>

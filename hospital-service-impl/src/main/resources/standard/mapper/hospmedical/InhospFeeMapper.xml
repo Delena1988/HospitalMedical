@@ -29,9 +29,9 @@
     CHARGE_DATE, REFUND_FLAG
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.inhospfee.InhospFeeReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_inhospfee
-    where INHOSP_SERIAL_NO = #{inhospSerialNo}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_inhospfee
+    WHERE INHOSP_SERIAL_NO = #{inhospSerialNo}
   </select>
 </mapper>

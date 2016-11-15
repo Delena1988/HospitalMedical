@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.microbetestresult;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 微生物检验结果
+ */
 public class MicrobeTestResult implements Serializable {
     private static final long serialVersionUID = -1469318032273348114L;
     private String organCode;//组织机构代码

@@ -2,6 +2,11 @@ package cn.joinhealth.appointment.model.cancelregister;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 取消预约请求
+ */
 public class CancelRegisterReq implements Serializable {
     private static final long serialVersionUID = -6409647969130021095L;
     private String organCode;//组织机构代码

@@ -9,5 +9,10 @@ import cn.joinhealth.hospmedical.model.inhosporder.InhospOrderReq;
  * 16/11/4.
  */
 public interface InhospOrderService {
+    /**
+     * @Description:查询住院医嘱信息  分页
+     * @param: [inhospOrderReq]
+     * @return: com.github.pagehelper.Page<cn.joinhealth.hospmedical.model.inhosporder.InhospOrder>
+     */
     Page<InhospOrder> selectByParams(InhospOrderReq inhospOrderReq);
 }

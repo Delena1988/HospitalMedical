@@ -36,9 +36,9 @@
     GROUP_FLAG, NOTE
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.orderdetailinfo.OrderDetailInfoReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_orderdetailinfo
-    where PRES_NO = #{presNo}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_orderdetailinfo
+    WHERE PRES_NO = #{presNo}
   </select>
 </mapper>

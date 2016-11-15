@@ -28,9 +28,9 @@
     REFUND_FLAG
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.outhospfee.OuthospFeeReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_outhospfee
-    where OUTHOSP_SERIAL_NO = #{outhospSerialNo}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_outhospfee
+    WHERE OUTHOSP_SERIAL_NO = #{outhospSerialNo}
   </select>
 </mapper>

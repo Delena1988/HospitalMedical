@@ -11,6 +11,17 @@ import java.util.List;
  * 16/11/4.
  */
 public interface PhysicalExamReportService {
+    /**
+     * @Description:查询体检报告 不分页
+     * @param: [physicalExamReportReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.physicalexamreport.PhysicalExamReport>
+     */
     List<PhysicalExamReport> selectByParamsUnpaged(PhysicalExamReportReq physicalExamReportReq);
+
+    /**
+     * @Description:查询体检报告 分页
+     * @param: [physicalExamReportReq]
+     * @return: com.github.pagehelper.Page<cn.joinhealth.hospmedical.model.physicalexamreport.PhysicalExamReport>
+     */
     Page<PhysicalExamReport> selectByParamsPaged(PhysicalExamReportReq physicalExamReportReq);
 }

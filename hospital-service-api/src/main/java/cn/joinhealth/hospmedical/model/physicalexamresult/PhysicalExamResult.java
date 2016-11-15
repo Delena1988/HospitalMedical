@@ -3,6 +3,11 @@ package cn.joinhealth.hospmedical.model.physicalexamresult;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 体检结果
+ */
 public class PhysicalExamResult implements Serializable {
     private static final long serialVersionUID = -7748285880299151663L;
     private String organCode;//组织机构代码

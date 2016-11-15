@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.visitinfo;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 就诊信息
+ */
 public class VisitInfo implements Serializable {
     private static final long serialVersionUID = 731047639639023666L;
     private String organCode;//组织机构代码

@@ -18,8 +18,8 @@
     APPLICABLE_CROWD, FEATURE, INVALID_FLAG
   </sql>
   <select id="selectAll" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_physicalexampackage
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_physicalexampackage
   </select>
 </mapper>

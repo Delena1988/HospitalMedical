@@ -17,6 +17,7 @@ import java.util.List;
 public class ExamReportServiceImpl implements ExamReportService {
     @Autowired
     private ExamReportMapper examReportMapper;
+
     @Override
     public List<ExamReport> selectByParams(ExamReportReq examReportReq) {
         return examReportMapper.selectByParams(examReportReq);

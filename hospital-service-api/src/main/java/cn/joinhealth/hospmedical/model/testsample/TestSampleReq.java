@@ -3,6 +3,11 @@ package cn.joinhealth.hospmedical.model.testsample;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 检验样本请求
+ */
 public class TestSampleReq implements Serializable {
     private static final long serialVersionUID = 4107440591204919417L;
     private String sysCode;//1-hug 2-interview

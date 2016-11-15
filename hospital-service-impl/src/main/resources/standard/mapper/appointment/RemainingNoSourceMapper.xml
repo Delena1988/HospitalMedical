@@ -11,9 +11,9 @@
     SCHEDULING_NO, ORGAN_CODE, AMOUNT, REMAINING_AMOUNT
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.appointment.model.remainingnosource.RemainingNoSourceReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_remainingnosource
-    where SCHEDULING_NO = #{schedulingNo}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_remainingnosource
+    WHERE SCHEDULING_NO = #{schedulingNo}
   </select>
 </mapper>

@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.diagdict;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 疾病字典
+ */
 public class DiagDict implements Serializable {
     private static final long serialVersionUID = 4714945442576198350L;
     private String organCode;//组织机构代码

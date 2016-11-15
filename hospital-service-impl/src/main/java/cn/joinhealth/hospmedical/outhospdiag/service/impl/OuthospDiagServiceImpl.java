@@ -17,6 +17,7 @@ import java.util.List;
 public class OuthospDiagServiceImpl implements OuthospDiagService {
     @Autowired
     private OuthospDiagMapper outhospDiagMapper;
+
     @Override
     public List<OuthospDiag> selectByParams(OuthospDiagReq outhospDiagReq) {
         return outhospDiagMapper.selectByParams(outhospDiagReq);

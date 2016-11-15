@@ -2,6 +2,11 @@ package cn.joinhealth.appointment.model.nosource;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 号源信息请求
+ */
 public class NoSourceReq implements Serializable{
     private static final long serialVersionUID = 6382195149623297740L;
     private String sysCode;//1-hug 2-interview

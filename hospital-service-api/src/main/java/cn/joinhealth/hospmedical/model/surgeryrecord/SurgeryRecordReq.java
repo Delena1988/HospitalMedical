@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.surgeryrecord;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 手术记录请求
+ */
 public class SurgeryRecordReq implements Serializable{
     private static final long serialVersionUID = 398869078844944029L;
     private String sysCode;//1-hug 2-interview

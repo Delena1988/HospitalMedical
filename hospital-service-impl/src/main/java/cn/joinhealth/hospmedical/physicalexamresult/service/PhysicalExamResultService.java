@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface PhysicalExamResultService {
+    /**
+     * @Description:查询体检报告结果
+     * @param: [physicalExamResultReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.physicalexamresult.PhysicalExamResult>
+     */
     List<PhysicalExamResult> selectByParams(PhysicalExamResultReq physicalExamResultReq);
 }

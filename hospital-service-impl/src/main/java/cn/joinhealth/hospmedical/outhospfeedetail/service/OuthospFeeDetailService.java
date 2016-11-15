@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface OuthospFeeDetailService {
+    /**
+     * @Description:查询门诊费用明细信息
+     * @param: [outhospFeeDetailReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.outhospfeedetail.OuthospFeeDetail>
+     */
     List<OuthospFeeDetail> selectByParams(OuthospFeeDetailReq outhospFeeDetailReq);
 }

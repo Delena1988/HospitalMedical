@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface OrderInfoService {
+    /**
+     * @Description:查询处方信息
+     * @param: [orderInfoReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.orderinfo.OrderInfo>
+     */
     List<OrderInfo> selectByParams(OrderInfoReq orderInfoReq);
 }

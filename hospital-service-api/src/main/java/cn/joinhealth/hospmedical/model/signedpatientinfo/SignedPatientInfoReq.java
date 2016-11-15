@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.signedpatientinfo;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 签约病人请求
+ */
 public class SignedPatientInfoReq implements Serializable {
     private static final long serialVersionUID = 668607755926889825L;
     private String sysCode;//1-hug 2-interview

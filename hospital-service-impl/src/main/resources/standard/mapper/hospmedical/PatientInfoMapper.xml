@@ -23,23 +23,22 @@
     SEX_CODE, SEX_NAME, ETHNIC_CODE, ETHNIC_NAME, MOBILE_NO, CONTACT_NAME, CONTACT_RELATION, 
     CONTACT_PHONE_NO
   </sql>
-    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.patientinfo.PatientInfoReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_patientinfo
-        where 1 = 1
+    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.patientinfo.PatientInfoReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_patientinfo
+        WHERE 1 = 1
         <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-            and PAT_INDEX_NO=#{patIndexNo}
+            AND PAT_INDEX_NO=#{patIndexNo}
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME=#{patName}
+            AND PAT_NAME=#{patName}
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER=#{idNumber}
+            AND ID_NUMBER=#{idNumber}
         </if>
         <if test="mobileNo != null and !''.equals(mobileNo.trim())">
-            and MOBILE_NO=#{mobileNo}
+            AND MOBILE_NO=#{mobileNo}
         </if>
     </select>
 </mapper>

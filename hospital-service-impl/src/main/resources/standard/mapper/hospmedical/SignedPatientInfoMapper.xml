@@ -24,49 +24,47 @@
     AGE, MOBILE_NO, SIGNED_DATE, SIGNED_DR_CODE, SIGNED_DR_NAME, SIGNED_YEAR, SIGNED_VALID_START_DATE, 
     SIGNED_VALID_END_DATE, DIAG_NAME
   </sql>
-    <select id="selectByParamsPaged"
-            parameterType="cn.joinhealth.hospmedical.model.signedpatientinfo.SignedPatientInfoReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_signedpatientinfo
-        where 1 = 1
+    <select id="selectByParamsPaged" parameterType="cn.joinhealth.hospmedical.model.signedpatientinfo.SignedPatientInfoReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_signedpatientinfo
+        WHERE 1 = 1
         <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
-            and VISIT_CARD_NO = #{visitCardNo}
+            AND VISIT_CARD_NO = #{visitCardNo}
         </if>
         <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-            and PAT_INDEX_NO = #{patIndexNo}
+            AND PAT_INDEX_NO = #{patIndexNo}
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME = #{patName}
+            AND PAT_NAME = #{patName}
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER = #{idNumber}
+            AND ID_NUMBER = #{idNumber}
         </if>
         <if test="mobileNo != null and !''.equals(mobileNo.trim())">
-            and MOBILE_NO = #{mobileNo}
+            AND MOBILE_NO = #{mobileNo}
         </if>
         <if test="signedDrCode != null and !''.equals(signedDrCode.trim())">
-            and SIGNED_DR_CODE = #{signedDrCode}
+            AND SIGNED_DR_CODE = #{signedDrCode}
         </if>
         <if test="signedDrName != null and !''.equals(signedDrName.trim())">
-            and SIGNED_DR_NAME = #{signedDrName}
+            AND SIGNED_DR_NAME = #{signedDrName}
         </if>
         <if test="ageStart != null and !''.equals(ageStart.trim())">
-            and AGE &gt;= #{ageStart}
+            AND AGE &gt;= #{ageStart}
         </if>
         <if test="ageEnd != null and !''.equals(ageEnd.trim())">
-            and AGE &lt;= #{ageEnd}
+            AND AGE &lt;= #{ageEnd}
         </if>
         <if test="diagName != null and !''.equals(diagName.trim())">
-            and DIAG_NAME like '%'||'${diagName}'||'%'
+            AND DIAG_NAME LIKE '%'||'${diagName}'||'%'
         </if>
         <if test="startDate != null and !''.equals(startDate)">
-            and SIGNED_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            AND SIGNED_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and SIGNED_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            AND SIGNED_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
-        order by SIGNED_DATE desc
+        ORDER BY SIGNED_DATE DESC
     </select>
 </mapper>

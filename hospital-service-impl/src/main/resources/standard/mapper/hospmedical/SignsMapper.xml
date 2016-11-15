@@ -28,114 +28,112 @@
     INHOSP_NO, INHOSP_SERIAL_NO, PAT_TYPE_NAME, PAT_NAME, ID_NUMBER, AGE, BIRTH_DATE, 
     SEX_CODE, SEX_NAME, TYPE, VAULE, UNIT, NORMAL_FLAG, MEASURE_DATE
   </sql>
-    <select id="selectByParamsUnpaged" parameterType="cn.joinhealth.hospmedical.model.signs.SignsReq"
-            resultMap="BaseResultMap">
-        select
+    <select id="selectByParamsUnpaged" parameterType="cn.joinhealth.hospmedical.model.signs.SignsReq" resultMap="BaseResultMap">
+        SELECT
         <include refid="Base_Column_List"/>
-        from v_jh_signs
-        where 1 = 1
+        FROM v_jh_signs
+        WHERE 1 = 1
         <if test="type == null or ''.equals(type.trim())">
-            and TYPE IN ('收缩压','舒张压','脉搏','血糖','体温')
+            AND TYPE IN ('收缩压','舒张压','脉搏','血糖','体温')
         </if>
         <if test="type != null and !''.equals(type.trim())">
             <if test="'血压'.equals(type.trim())">
-                and (TYPE = '收缩压' OR TYPE = '舒张压')
+                AND (TYPE = '收缩压' OR TYPE = '舒张压')
             </if>
             <if test="!'血压'.equals(type.trim())">
-                and TYPE = #{type}
+                AND TYPE = #{type}
             </if>
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME = #{patName}
+            AND PAT_NAME = #{patName}
         </if>
         <if test="patTypeName != null and !''.equals(patTypeName.trim())">
-            and PAT_TYPE_NAME = #{patTypeName}
+            AND PAT_TYPE_NAME = #{patTypeName}
         </if>
         <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-            and PAT_INDEX_NO = #{patIndexNo}
+            AND PAT_INDEX_NO = #{patIndexNo}
         </if>
         <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
-            and VISIT_CARD_NO = #{visitCardNo}
+            AND VISIT_CARD_NO = #{visitCardNo}
         </if>
         <if test="outhospNo != null and !''.equals(outhospNo.trim())">
-            and OUTHOSP_NO = #{outhospNo}
+            AND OUTHOSP_NO = #{outhospNo}
         </if>
         <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-            and OUTHOSP_SERIAL_NO = #{outhospSerialNo}
+            AND OUTHOSP_SERIAL_NO = #{outhospSerialNo}
         </if>
         <if test="inhospNo != null and !''.equals(inhospNo.trim())">
-            and INHOSP_NO = #{inhospNo}
+            AND INHOSP_NO = #{inhospNo}
         </if>
         <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-            and INHOSP_SERIAL_NO = #{inhospSerialNo}
+            AND INHOSP_SERIAL_NO = #{inhospSerialNo}
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER = #{idNumber}
+            AND ID_NUMBER = #{idNumber}
         </if>
         <if test="normalFlag != null and !''.equals(normalFlag.trim())">
-            and NORMAL_FLAG = #{normalFlag}
+            AND NORMAL_FLAG = #{normalFlag}
         </if>
         <if test="startDate != null and !''.equals(startDate)">
-            and MEASURE_DATE &gt;= #{startDate}
+            AND MEASURE_DATE &gt;= #{startDate}
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and MEASURE_DATE &lt;= #{endDate}
+            AND MEASURE_DATE &lt;= #{endDate}
         </if>
     </select>
 
-    <select id="selectByParamsPaged" parameterType="cn.joinhealth.hospmedical.model.signs.SignsReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_signs
-        where 1 = 1
+    <select id="selectByParamsPaged" parameterType="cn.joinhealth.hospmedical.model.signs.SignsReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_signs
+        WHERE 1 = 1
         <if test="type == null or ''.equals(type.trim())">
-            and TYPE IN ('收缩压','舒张压','脉搏','血糖','体温')
+            AND TYPE IN ('收缩压','舒张压','脉搏','血糖','体温')
         </if>
         <if test="type != null and !''.equals(type.trim())">
             <if test="'血压'.equals(type.trim())">
-                and (TYPE = '收缩压' OR TYPE = '舒张压')
+                AND (TYPE = '收缩压' OR TYPE = '舒张压')
             </if>
             <if test="!'血压'.equals(type.trim())">
-                and TYPE = #{type}
+                AND TYPE = #{type}
             </if>
         </if>
         <if test="patName != null and !''.equals(patName.trim())">
-            and PAT_NAME = #{patName}
+            AND PAT_NAME = #{patName}
         </if>
         <if test="patTypeName != null and !''.equals(patTypeName.trim())">
-            and PAT_TYPE_NAME = #{patTypeName}
+            AND PAT_TYPE_NAME = #{patTypeName}
         </if>
         <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-            and PAT_INDEX_NO = #{patIndexNo}
+            AND PAT_INDEX_NO = #{patIndexNo}
         </if>
         <if test="visitCardNo != null and !''.equals(visitCardNo.trim())">
-            and VISIT_CARD_NO = #{visitCardNo}
+            AND VISIT_CARD_NO = #{visitCardNo}
         </if>
         <if test="outhospNo != null and !''.equals(outhospNo.trim())">
-            and OUTHOSP_NO = #{outhospNo}
+            AND OUTHOSP_NO = #{outhospNo}
         </if>
         <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-            and OUTHOSP_SERIAL_NO = #{outhospSerialNo}
+            AND OUTHOSP_SERIAL_NO = #{outhospSerialNo}
         </if>
         <if test="inhospNo != null and !''.equals(inhospNo.trim())">
-            and INHOSP_NO = #{inhospNo}
+            AND INHOSP_NO = #{inhospNo}
         </if>
         <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-            and INHOSP_SERIAL_NO = #{inhospSerialNo}
+            AND INHOSP_SERIAL_NO = #{inhospSerialNo}
         </if>
         <if test="idNumber != null and !''.equals(idNumber.trim())">
-            and ID_NUMBER = #{idNumber}
+            AND ID_NUMBER = #{idNumber}
         </if>
         <if test="normalFlag != null and !''.equals(normalFlag.trim())">
-            and NORMAL_FLAG = #{normalFlag}
+            AND NORMAL_FLAG = #{normalFlag}
         </if>
         <if test="startDate != null and !''.equals(startDate)">
-            and MEASURE_DATE &gt;= #{startDate}
+            AND MEASURE_DATE &gt;= #{startDate}
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and MEASURE_DATE &lt;= #{endDate}
+            AND MEASURE_DATE &lt;= #{endDate}
         </if>
-        order by MEASURE_DATE desc
+        ORDER BY MEASURE_DATE DESC
     </select>
 </mapper>

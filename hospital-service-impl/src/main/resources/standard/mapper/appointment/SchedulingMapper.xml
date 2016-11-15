@@ -24,9 +24,9 @@
     DR_CODE, DR_NAME, TITLE, TYPE, VISIT_DATE, AP, FEE, AMOUNT, REGISTER_AMOUNT, STATUS
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.appointment.model.scheduling.SchedulingReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_scheduling
-    where SCHEDULING_NO = #{schedulingNo}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_scheduling
+    WHERE SCHEDULING_NO = #{schedulingNo}
   </select>
 </mapper>

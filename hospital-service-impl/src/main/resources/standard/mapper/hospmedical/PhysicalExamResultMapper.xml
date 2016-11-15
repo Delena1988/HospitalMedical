@@ -31,9 +31,9 @@
     REFERENCE_LOWER_LIMIT, EXAM_SUMMARY
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.physicalexamresult.PhysicalExamResultReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_physicalexamresult
-    where REPORT_NO = #{reportNo}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_physicalexamresult
+    WHERE REPORT_NO = #{reportNo}
   </select>
 </mapper>

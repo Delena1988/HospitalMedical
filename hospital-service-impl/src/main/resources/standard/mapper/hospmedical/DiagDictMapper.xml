@@ -13,8 +13,8 @@
     DIAG_INDEX_NO, ORGAN_CODE, DIAG_CODE, DIAG_NAME, PINYIN_CODE, DIAG_CODE_DICT
   </sql>
     <select id="selectAll" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_diagdict
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_diagdict
     </select>
 </mapper>

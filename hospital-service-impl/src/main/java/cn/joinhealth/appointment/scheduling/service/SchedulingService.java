@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface SchedulingService {
+    /**
+     * @Description:查询排班信息
+     * @param: [schedulingReq]
+     * @return: java.util.List<cn.joinhealth.appointment.model.scheduling.Scheduling>
+     */
     List<Scheduling> selectByParams(SchedulingReq schedulingReq);
 }

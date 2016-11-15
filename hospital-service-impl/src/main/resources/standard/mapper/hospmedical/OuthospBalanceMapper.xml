@@ -13,10 +13,10 @@
     DEAL_NO, ORGAN_CODE, BALANCE_NO, FEE_CATEG_CODE, FEE_CATEG_NAME, TOTAL_MONEY
   </sql>
     <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.outhospbalance.OuthospBalanceReq" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_outhospbalance
-        where DEAL_NO in
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_outhospbalance
+        WHERE DEAL_NO IN
         <foreach item="item" index="index" collection="dealNo"
                  open="(" separator="," close=")">
             #{item}

@@ -18,6 +18,7 @@ import java.util.List;
 public class OuthospFeeServiceImpl implements OuthospFeeService {
     @Autowired
     private OuthospFeeMapper outhospFeeMapper;
+
     @Override
     public OuthospFee selectByParams(OuthospFeeReq outhospFeeReq) {
         List<OuthospFee> outhospFeeList = outhospFeeMapper.selectByParams(outhospFeeReq);
@@ -66,7 +67,7 @@ public class OuthospFeeServiceImpl implements OuthospFeeService {
             } else {
                 outhospFee.setRefundFlag("1");
             }
-        }else if (outhospFeeList.size() == 1){
+        } else if (outhospFeeList.size() == 1) {
             outhospFee = outhospFeeList.get(0);
         }
 

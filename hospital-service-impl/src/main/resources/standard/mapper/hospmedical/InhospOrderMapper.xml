@@ -60,15 +60,15 @@
     DISCHARGE_ORDER_FLAG, DR_ENTRUST, NOTE
   </sql>
     <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.inhosporder.InhospOrderReq" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_inhosporder
-        where INHOSP_SERIAL_NO =# {inhospSerialNo}
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_inhosporder
+        WHERE INHOSP_SERIAL_NO =# {inhospSerialNo}
         <if test="startDate != null and !''.equals(startDate)">
-            and ORDER_ORDER_DATE &gt;= #{startDate}
+            AND ORDER_ORDER_DATE &gt;= #{startDate}
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and ORDER_ORDER_DATE &lt;= #{endDate}
+            AND ORDER_ORDER_DATE &lt;= #{endDate}
         </if>
         ORDER BY ORDER_ORDER_DATE,ORDER_NO DESC
     </select>

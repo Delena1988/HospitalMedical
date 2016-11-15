@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.staffdict;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 职工字典
+ */
 public class StaffDict implements Serializable {
     private static final long serialVersionUID = -9098398634332433637L;
     private String organCode;//组织机构代码

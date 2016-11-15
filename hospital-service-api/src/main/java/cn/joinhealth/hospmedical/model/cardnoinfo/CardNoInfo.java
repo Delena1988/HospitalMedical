@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.cardnoinfo;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 卡号信息
+ */
 public class CardNoInfo implements Serializable {
     private static final long serialVersionUID = -8171552595246115630L;
     private String organCode;//组织机构代码

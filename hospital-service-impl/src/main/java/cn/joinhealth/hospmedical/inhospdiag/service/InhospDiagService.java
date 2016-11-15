@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface InhospDiagService {
+    /**
+     * @Description:查询住院诊断信息
+     * @param: [inhospDiagReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.inhospdiag.InhospDiag>
+     */
     List<InhospDiag> selectByParams(InhospDiagReq inhospDiagReq);
 }

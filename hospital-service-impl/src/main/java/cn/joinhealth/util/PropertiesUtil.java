@@ -7,10 +7,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
+ * Created by linjian
+ * 16/11/15
  * 读取Properties文件的工具类
- *
- * @author chenjialong
- * @date Aug 3, 2012
  */
 public class PropertiesUtil {
 

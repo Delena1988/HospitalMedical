@@ -12,16 +12,15 @@
     <sql id="Base_Column_List">
     DEAL_NO, ORGAN_CODE, BALANCE_NO, FEE_CATEG_CODE, FEE_CATEG_NAME, TOTAL_MONEY
   </sql>
-    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.inhospbalance.InhospBalanceReq"
-            resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_inhospbalance
-        where and DEAL_NO in
+    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.inhospbalance.InhospBalanceReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_inhospbalance
+        WHERE AND DEAL_NO IN
         <foreach item="item" index="index" collection="dealNo"
                  open="(" separator="," close=")">
             #{item}
         </foreach>
-        order by BALANCE_NO
+        ORDER BY BALANCE_NO
     </select>
 </mapper>

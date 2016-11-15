@@ -26,38 +26,38 @@
     TAKE_REPORT_DATE, TAKE_REPORT_LOCATION, REQUISITION_PRINT_DATE, NOTE, RELATION_TYPE
   </sql>
   <select id="selectByParams" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_testsample
-    where 1 = 1
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_testsample
+    WHERE 1 = 1
     <if test="requisitionNo.size() &gt; 0">
-      and REQUISITION_NO in
+      AND REQUISITION_NO IN
       <foreach item="item" index="index" collection="requisitionNo"
                open="(" separator="," close=")">
         #{item}
       </foreach>
     </if>
     <if test="requisitionNoItem.size() &gt; 0">
-      and REQUISITION_NO_ITEM in
+      AND REQUISITION_NO_ITEM IN
       <foreach item="item" index="index" collection="requisitionNoItem"
                open="(" separator="," close=")">
         #{item}
       </foreach>
     </if>
     <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
-      and PAT_INDEX_NO=#{patIndexNo}
+      AND PAT_INDEX_NO=#{patIndexNo}
     </if>
     <if test="outhospNo != null and !''.equals(outhospNo.trim())">
-      and OUTHOSP_NO=#{outhospNo}
+      AND OUTHOSP_NO=#{outhospNo}
     </if>
     <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-      and OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+      AND OUTHOSP_SERIAL_NO=#{outhospSerialNo}
     </if>
     <if test="inhospNo != null and !''.equals(inhospNo.trim())">
-      and INHOSP_NO=#{inhospNo}
+      AND INHOSP_NO=#{inhospNo}
     </if>
     <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-      and INHOSP_SERIAL_NO=#{inhospSerialNo}
+      AND INHOSP_SERIAL_NO=#{inhospSerialNo}
     </if>
   </select>
 </mapper>

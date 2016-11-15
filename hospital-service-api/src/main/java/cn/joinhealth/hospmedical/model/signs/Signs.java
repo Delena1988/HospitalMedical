@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.signs;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 体征信息
+ */
 public class Signs implements Serializable {
     private static final long serialVersionUID = -7499392817309914798L;
     private String organCode;//组织机构代码

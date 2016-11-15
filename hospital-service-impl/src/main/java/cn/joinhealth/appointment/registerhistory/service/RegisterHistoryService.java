@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface RegisterHistoryService {
+    /**
+     * @Description:查询预约记录
+     * @param: [registerHistoryReq]
+     * @return: java.util.List<cn.joinhealth.appointment.model.registerhistory.RegisterHistory>
+     */
     List<RegisterHistory> selectByParams(RegisterHistoryReq registerHistoryReq);
 }

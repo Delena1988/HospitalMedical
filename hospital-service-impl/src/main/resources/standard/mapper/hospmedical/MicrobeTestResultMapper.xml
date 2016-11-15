@@ -23,9 +23,9 @@
     REFERENCE_RANGES, REFERENCE_UPPER_LIMIT, REFERENCE_LOWER_LIMIT, NOTE
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.microbetestresult.MicrobeTestResultReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_microbetestresult
-    where REPORT_NO = #{reportNo,jdbcType=VARCHAR}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_microbetestresult
+    WHERE REPORT_NO = #{reportNo,jdbcType=VARCHAR}
   </select>
 </mapper>

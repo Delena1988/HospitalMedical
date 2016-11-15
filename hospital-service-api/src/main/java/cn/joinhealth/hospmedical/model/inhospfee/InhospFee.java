@@ -2,6 +2,11 @@ package cn.joinhealth.hospmedical.model.inhospfee;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 住院费用
+ */
 public class InhospFee implements Serializable {
     private static final long serialVersionUID = -385395270354410529L;
     private String organCode;//组织机构代码

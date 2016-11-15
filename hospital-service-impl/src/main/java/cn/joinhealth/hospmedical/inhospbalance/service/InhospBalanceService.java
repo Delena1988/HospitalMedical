@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface InhospBalanceService {
+    /**
+     * @Description:查询住院费用结算信息
+     * @param: [inhospBalanceReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.inhospbalance.InhospBalance>
+     */
     List<InhospBalance> selectByParams(InhospBalanceReq inhospBalanceReq);
 }

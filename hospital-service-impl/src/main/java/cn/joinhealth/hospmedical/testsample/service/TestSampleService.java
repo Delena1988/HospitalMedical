@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface TestSampleService {
+    /**
+     * @Description:查询检验样本信息
+     * @param: [testSampleReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.testsample.TestSample>
+     */
     List<TestSample> selectByParams(TestSampleReq testSampleReq);
 }

@@ -20,9 +20,9 @@
     DIAG_NO, DIAG_TYPE_CODE, DIAG_TYPE_NAME, DIAG_CODE, DIAG_NAME, DIAG_INTRODUCTION
   </sql>
   <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.outhospdiag.OuthospDiagReq" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from v_jh_outhospdiag
-    where OUTHOSP_SERIAL_NO = #{outhospSerialNo,jdbcType=VARCHAR}
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_outhospdiag
+    WHERE OUTHOSP_SERIAL_NO = #{outhospSerialNo,jdbcType=VARCHAR}
   </select>
 </mapper>

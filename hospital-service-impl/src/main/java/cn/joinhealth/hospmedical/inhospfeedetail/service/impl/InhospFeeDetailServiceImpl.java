@@ -17,6 +17,7 @@ import java.util.List;
 public class InhospFeeDetailServiceImpl implements InhospFeeDetailService {
     @Autowired
     private InhospFeeDetailMapper inhospFeeDetailMapper;
+
     @Override
     public List<InhospFeeDetail> selectByParams(InhospFeeDetailReq inhospFeeDetailReq) {
         return inhospFeeDetailMapper.selectByParams(inhospFeeDetailReq);

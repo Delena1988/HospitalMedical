@@ -2,6 +2,11 @@ package cn.joinhealth.appointment.model.physicalexampackagedetail;
 
 import java.io.Serializable;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 体检套餐详情
+ */
 public class PhysicalExamPackageDetail implements Serializable {
     private static final long serialVersionUID = -1486295177810637813L;
     private String organCode;//组织机构代码

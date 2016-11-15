@@ -10,5 +10,10 @@ import java.util.List;
  * 16/11/4.
  */
 public interface ExamRequisitionService {
+    /**
+     * @Description:查询检查申请单
+     * @param: [examRequisitionReq]
+     * @return: java.util.List<cn.joinhealth.hospmedical.model.examrequisition.ExamRequisition>
+     */
     List<ExamRequisition> selectByParams(ExamRequisitionReq examRequisitionReq);
 }

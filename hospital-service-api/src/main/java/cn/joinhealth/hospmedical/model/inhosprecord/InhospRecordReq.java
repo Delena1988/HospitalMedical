@@ -3,6 +3,11 @@ package cn.joinhealth.hospmedical.model.inhosprecord;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Created by linjian
+ * 16/11/15
+ * 住院记录请求
+ */
 public class InhospRecordReq implements Serializable {
     private static final long serialVersionUID = 3561549181750744853L;
     private String sysCode;//1-hug 2-interview

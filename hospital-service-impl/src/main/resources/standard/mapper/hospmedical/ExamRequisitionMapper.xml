@@ -28,28 +28,28 @@
     NOTE
   </sql>
     <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.examrequisition.ExamRequisitionReq" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from v_jh_examrequisition
-        where 1 = 1
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_examrequisition
+        WHERE 1 = 1
         <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
-            and OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+            AND OUTHOSP_SERIAL_NO=#{outhospSerialNo}
         </if>
         <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
-            and INHOSP_SERIAL_NO=#{inhospSerialNo}
+            AND INHOSP_SERIAL_NO=#{inhospSerialNo}
         </if>
         <if test="outhospNo != null and !''.equals(outhospNo.trim())">
-            and OUTHOSP_NO=#{outhospNo}
+            AND OUTHOSP_NO=#{outhospNo}
         </if>
         <if test="inhospNo != null and !''.equals(inhospNo.trim())">
-            and INHOSP_NO=#{inhospNo}
+            AND INHOSP_NO=#{inhospNo}
         </if>
         <if test="startDate != null and !''.equals(startDate)">
-            and APPLY_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            AND APPLY_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate != null and !''.equals(endDate)">
-            and APPLY_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            AND APPLY_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
         </if>
-        order by APPLY_DATE desc
+        ORDER BY APPLY_DATE DESC
     </select>
 </mapper>
