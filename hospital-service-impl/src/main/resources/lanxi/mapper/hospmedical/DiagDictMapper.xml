@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.joinhealth.hospmedical.diagdict.dao.DiagDictMapper">
+    <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.diagdict.DiagDict">
+        <id column="DIAG_INDEX_NO" jdbcType="VARCHAR" property="diagIndexNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="DIAG_CODE" jdbcType="VARCHAR" property="diagCode"/>
+        <result column="DIAG_NAME" jdbcType="VARCHAR" property="diagName"/>
+        <result column="PINYIN_CODE" jdbcType="VARCHAR" property="pinyinCode"/>
+        <result column="DIAG_CODE_DICT" jdbcType="VARCHAR" property="diagCodeDict"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    DIAG_INDEX_NO, ORGAN_CODE, DIAG_CODE, DIAG_NAME, PINYIN_CODE, DIAG_CODE_DICT
+  </sql>
+    <select id="selectAll" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_diagdict
+    </select>
+</mapper>

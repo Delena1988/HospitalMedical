@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<bean id="hospitalMedicalService" class="cn.joinhealth.service.HospitalMedicalServiceImpl"></bean>
+	<bean id="appointmentService" class="cn.joinhealth.service.AppointmentServiceImpl"></bean>
+	<bean id="weChatService" class="cn.joinhealth.service.WeChatServiceImpl"></bean>
+	<!--要暴露的服务接口-->
+	<dubbo:service interface="cn.joinhealth.hospmedical.api.HospitalMedicalService" ref="hospitalMedicalService" timeout="1200000"/>
+	<dubbo:service interface="cn.joinhealth.appointment.api.AppointmentService" ref="appointmentService" timeout="1200000"/>
+	<dubbo:service interface="cn.joinhealth.wechat.api.WeChatService" ref="weChatService" timeout="1200000"/>
+</beans>

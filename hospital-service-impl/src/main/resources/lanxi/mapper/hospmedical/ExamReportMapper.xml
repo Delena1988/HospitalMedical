@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.joinhealth.hospmedical.examreport.dao.ExamReportMapper">
+    <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.examreport.ExamReport">
+        <id column="REPORT_NO" jdbcType="VARCHAR" property="reportNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
+        <result column="OUTHOSP_NO" jdbcType="VARCHAR" property="outhospNo"/>
+        <result column="OUTHOSP_SERIAL_NO" jdbcType="VARCHAR" property="outhospSerialNo"/>
+        <result column="INHOSP_NO" jdbcType="VARCHAR" property="inhospNo"/>
+        <result column="INHOSP_NUM" jdbcType="VARCHAR" property="inhospNum"/>
+        <result column="INHOSP_SERIAL_NO" jdbcType="VARCHAR" property="inhospSerialNo"/>
+        <result column="REQUISITION_NO" jdbcType="VARCHAR" property="requisitionNo"/>
+        <result column="REPORT_NAME" jdbcType="VARCHAR" property="reportName"/>
+        <result column="EQUIPMENT_CODE" jdbcType="VARCHAR" property="equipmentCode"/>
+        <result column="EQUIPMENT_NAME" jdbcType="VARCHAR" property="equipmentName"/>
+        <result column="OPER_PART_CODE" jdbcType="VARCHAR" property="operPartCode"/>
+        <result column="OPER_PART_NAME" jdbcType="VARCHAR" property="operPartName"/>
+        <result column="EXAM_CATEG_CODE" jdbcType="VARCHAR" property="examCategCode"/>
+        <result column="EXAM_CATEG_NAME" jdbcType="VARCHAR" property="examCategName"/>
+        <result column="EXAM_ITEM_CODE" jdbcType="VARCHAR" property="examItemCode"/>
+        <result column="EXAM_ITEM_NAME" jdbcType="VARCHAR" property="examItemName"/>
+        <result column="APPLY_DATE" jdbcType="VARCHAR" property="applyDate"/>
+        <result column="APPLY_DEPT_CODE" jdbcType="VARCHAR" property="applyDeptCode"/>
+        <result column="APPLY_DEPT_NAME" jdbcType="VARCHAR" property="applyDeptName"/>
+        <result column="APPLY_DR_CODE" jdbcType="VARCHAR" property="applyDrCode"/>
+        <result column="APPLY_DR_NAME" jdbcType="VARCHAR" property="applyDrName"/>
+        <result column="EXECUTE_DATE" jdbcType="VARCHAR" property="executeDate"/>
+        <result column="PICTURE" jdbcType="VARCHAR" property="picture"/>
+        <result column="EXAM_RESULT" jdbcType="VARCHAR" property="examResult"/>
+        <result column="EXAM_DESCRIPTION" jdbcType="VARCHAR" property="examDescription"/>
+        <result column="REPORT_DATE" jdbcType="VARCHAR" property="reportDate"/>
+        <result column="NOTE" jdbcType="VARCHAR" property="note"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    REPORT_NO, ORGAN_CODE, PAT_INDEX_NO, OUTHOSP_NO, OUTHOSP_SERIAL_NO, INHOSP_NO, INHOSP_NUM, 
+    INHOSP_SERIAL_NO, REQUISITION_NO, REPORT_NAME, EQUIPMENT_CODE, EQUIPMENT_NAME, OPER_PART_CODE, 
+    OPER_PART_NAME, EXAM_CATEG_CODE, EXAM_CATEG_NAME, EXAM_ITEM_CODE, EXAM_ITEM_NAME, 
+    APPLY_DATE, APPLY_DEPT_CODE, APPLY_DEPT_NAME, APPLY_DR_CODE, APPLY_DR_NAME, EXECUTE_DATE, 
+    PICTURE, EXAM_RESULT, EXAM_DESCRIPTION, REPORT_DATE, NOTE
+  </sql>
+    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.examreport.ExamReportReq"
+            resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_examreport WHERE 1 = 1
+        <if test="requisitionNo != null and !''.equals(requisitionNo.trim())">
+            AND REQUISITION_NO=#{requisitionNo}
+        </if>
+        <if test="patIndexNo != null and !''.equals(patIndexNo.trim())">
+            AND PAT_INDEX_NO=#{patIndexNo}
+        </if>
+        <if test="outhospNo != null and !''.equals(outhospNo.trim())">
+            AND OUTHOSP_NO=#{outhospNo}
+        </if>
+        <if test="outhospSerialNo != null and !''.equals(outhospSerialNo.trim())">
+            AND OUTHOSP_SERIAL_NO=#{outhospSerialNo}
+        </if>
+        <if test="inhospNo != null and !''.equals(inhospNo.trim())">
+            AND INHOSP_NO=#{inhospNo}
+        </if>
+        <if test="inhospSerialNo != null and !''.equals(inhospSerialNo.trim())">
+            AND INHOSP_SERIAL_NO=#{inhospSerialNo}
+        </if>
+        <if test="applyDrName != null and !''.equals(applyDrName.trim())">
+            AND APPLY_DR_NAME=#{applyDrName}
+        </if>
+        <if test="applyDeptName != null and !''.equals(applyDeptName.trim())">
+            AND APPLY_DEPT_NAME=#{applyDrName}
+        </if>
+        <if test="startDate != null and !''.equals(startDate)">
+            AND APPLY_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            AND APPLY_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+        ORDER BY REPORT_DATE DESC
+    </select>
+</mapper>

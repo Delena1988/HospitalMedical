@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.joinhealth.hospmedical.staffdict.dao.StaffDictMapper">
+  <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.staffdict.StaffDict">
+    <id column="STAFF_INDEX_NO" jdbcType="VARCHAR" property="staffIndexNo" />
+    <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
+    <result column="STAFF_CODE" jdbcType="VARCHAR" property="staffCode" />
+    <result column="STAFF_NAME" jdbcType="VARCHAR" property="staffName" />
+    <result column="PINYIN_CODE" jdbcType="VARCHAR" property="pinyinCode" />
+    <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber" />
+    <result column="SEX_CODE" jdbcType="VARCHAR" property="sexCode" />
+    <result column="SEX_NAME" jdbcType="VARCHAR" property="sexName" />
+    <result column="TITLE_CODE" jdbcType="VARCHAR" property="titleCode" />
+    <result column="TITLE_NAME" jdbcType="VARCHAR" property="titleName" />
+    <result column="MOBILE_NO" jdbcType="VARCHAR" property="mobileNo" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="BIRTH_DATE" jdbcType="VARCHAR" property="birthDate" />
+    <result column="STAFF_BRIEFING" jdbcType="VARCHAR" property="staffBriefing" />
+    <result column="GOOD_DESCR" jdbcType="VARCHAR" property="goodDescr" />
+    <result column="SUBOR_DEPT_CODE" jdbcType="VARCHAR" property="suborDeptCode" />
+    <result column="SUBOR_DEPT_NAME" jdbcType="VARCHAR" property="suborDeptName" />
+    <result column="INVALID_FLAG" jdbcType="VARCHAR" property="invalidFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    STAFF_INDEX_NO, ORGAN_CODE, STAFF_CODE, STAFF_NAME, PINYIN_CODE, ID_NUMBER, SEX_CODE, 
+    SEX_NAME, TITLE_CODE, TITLE_NAME, MOBILE_NO, EMAIL, BIRTH_DATE, STAFF_BRIEFING, GOOD_DESCR, 
+    SUBOR_DEPT_CODE, SUBOR_DEPT_NAME, INVALID_FLAG
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_staffdict
+  </select>
+</mapper>

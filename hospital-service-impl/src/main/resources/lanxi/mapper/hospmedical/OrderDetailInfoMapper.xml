@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.joinhealth.hospmedical.orderdetailinfo.dao.OrderDetailInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.orderdetailinfo.OrderDetailInfo">
+    <id column="PRES_SUB_NO" jdbcType="VARCHAR" property="presSubNo" />
+    <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
+    <result column="PRES_NO" jdbcType="VARCHAR" property="presNo" />
+    <result column="PRES_GROUP_NO" jdbcType="VARCHAR" property="presGroupNo" />
+    <result column="DRUG_CODE" jdbcType="VARCHAR" property="drugCode" />
+    <result column="DRUG_NAME" jdbcType="VARCHAR" property="drugName" />
+    <result column="DRUG_SPECIFICATIONS" jdbcType="VARCHAR" property="drugSpecifications" />
+    <result column="DOSE_WAY_CODE" jdbcType="VARCHAR" property="doseWayCode" />
+    <result column="DOSE_WAY_NAME" jdbcType="VARCHAR" property="doseWayName" />
+    <result column="DRUG_USE_ONE_DOSAGE" jdbcType="VARCHAR" property="drugUseOneDosage" />
+    <result column="DRUG_USE_ONE_DOSAGE_UNIT" jdbcType="VARCHAR" property="drugUseOneDosageUnit" />
+    <result column="DRUG_USE_FREQUENCY_CODE" jdbcType="VARCHAR" property="drugUseFrequencyCode" />
+    <result column="DRUG_USE_FREQUENCY_NAME" jdbcType="VARCHAR" property="drugUseFrequencyName" />
+    <result column="DRUG_FORM_CODE" jdbcType="VARCHAR" property="drugFormCode" />
+    <result column="DRUG_FORM_NAME" jdbcType="VARCHAR" property="drugFormName" />
+    <result column="DRUG_UNIT" jdbcType="VARCHAR" property="drugUnit" />
+    <result column="DRUG_UNIT_PRICE" jdbcType="VARCHAR" property="drugUnitPrice" />
+    <result column="DRUG_ABBREV" jdbcType="VARCHAR" property="drugAbbrev" />
+    <result column="DRUG_DESCR" jdbcType="VARCHAR" property="drugDescr" />
+    <result column="PRES_SUSTAINED_DAYS" jdbcType="VARCHAR" property="presSustainedDays" />
+    <result column="DRUG_AMOUNT" jdbcType="VARCHAR" property="drugAmount" />
+    <result column="BASE_AUX_DRUG_FLAG" jdbcType="VARCHAR" property="baseAuxDrugFlag" />
+    <result column="SELF_DRUG_FLAG" jdbcType="VARCHAR" property="selfDrugFlag" />
+    <result column="GROUP_FLAG" jdbcType="VARCHAR" property="groupFlag" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRES_SUB_NO, ORGAN_CODE, PRES_NO, PRES_GROUP_NO, DRUG_CODE, DRUG_NAME, DRUG_SPECIFICATIONS, 
+    DOSE_WAY_CODE, DOSE_WAY_NAME, DRUG_USE_ONE_DOSAGE, DRUG_USE_ONE_DOSAGE_UNIT, DRUG_USE_FREQUENCY_CODE, 
+    DRUG_USE_FREQUENCY_NAME, DRUG_FORM_CODE, DRUG_FORM_NAME, DRUG_UNIT, DRUG_UNIT_PRICE, 
+    DRUG_ABBREV, DRUG_DESCR, PRES_SUSTAINED_DAYS, DRUG_AMOUNT, BASE_AUX_DRUG_FLAG, SELF_DRUG_FLAG, 
+    GROUP_FLAG, NOTE
+  </sql>
+  <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.orderdetailinfo.OrderDetailInfoReq" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM v_jh_orderdetailinfo
+    WHERE PRES_NO = #{presNo}
+  </select>
+</mapper>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.joinhealth.hospmedical.cardnoinfo.dao.CardNoInfoMapper">
+    <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfo">
+        <id column="VISIT_CARD_NO" jdbcType="VARCHAR" property="visitCardNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
+        <result column="VISIT_CARD_TYPE" jdbcType="VARCHAR" property="visitCardType"/>
+        <result column="PAT_NAME" jdbcType="VARCHAR" property="patName"/>
+        <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber"/>
+        <result column="INVALID_FLAG" jdbcType="VARCHAR" property="invalidFlag"/>
+        <result column="OPEN_DATE" jdbcType="VARCHAR" property="openDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    VISIT_CARD_NO, ORGAN_CODE, PAT_INDEX_NO, VISIT_CARD_TYPE, PAT_NAME, ID_NUMBER, INVALID_FLAG, 
+    OPEN_DATE
+  </sql>
+
+    <select id="selectByPatIndexNo" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_cardnoinfo
+        WHERE PAT_INDEX_NO = #{patIndexNo,jdbcType=VARCHAR}
+        <if test="startDate != null and !''.equals(startDate)">
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+    </select>
+
+    <select id="selectByIdNumberAndPatName" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_cardnoinfo
+        WHERE PAT_NAME = #{patName,jdbcType=VARCHAR} AND ID_NUMBER = #{idNumber,jdbcType=VARCHAR}
+        <if test="startDate != null and !''.equals(startDate)">
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+    </select>
+
+    <select id="selectByCardNoAndPatName" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq" resultMap="BaseResultMap">
+        SELECT ORGAN_CODE,
+          VISIT_CARD_NO AS INDEX_NO,
+          '2' AS INDEX_NO_TYPE,
+          PAT_INDEX_NO
+        FROM v_jh_cardnoinfo WHERE VISIT_CARD_TYPE = '2' AND PAT_NAME=#{patName} AND VISIT_CARD_NO=#{visitCardNo}
+        <if test="startDate != null and !''.equals(startDate)">
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+        UNION
+        SELECT ORGAN_CODE,
+          VISIT_CARD_NO AS INDEX_NO,
+          '1' AS INDEX_NO_TYPE,
+          PAT_INDEX_NO
+        FROM v_jh_cardnoinfo WHERE VISIT_CARD_TYPE = '1' AND PAT_NAME=#{patName} AND VISIT_CARD_NO=#{visitCardNo}
+        <if test="startDate != null and !''.equals(startDate)">
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+    </select>
+
+    <select id="selectByCardNoAndCardType" parameterType="cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfoReq"
+            resultMap="BaseResultMap">
+        SELECT ORGAN_CODE,
+          VISIT_CARD_NO AS INDEX_NO,
+          #{indexNoType} AS INDEX_NO_TYPE,
+          PAT_INDEX_NO
+        FROM v_jh_cardnoinfo WHERE VISIT_CARD_NO=#{visitCardNo} AND VISIT_CARD_TYPE = #{visitCardType}
+        <if test="startDate != null and !''.equals(startDate)">
+            AND OPEN_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            AND OPEN_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+        </if>
+    </select>
+</mapper>
