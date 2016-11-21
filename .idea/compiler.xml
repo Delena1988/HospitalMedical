@@ -28,6 +28,7 @@
         <module name="hospital-service-api" />
         <module name="hospital-service-impl" />
         <module name="hospital-service-impl-test" />
+        <module name="hospital-service-impl-web" />
         <module name="InhospMedical" />
       </profile>
     </annotationProcessing>
@@ -38,6 +39,8 @@
       <module name="hospital-service-api" target="1.7" />
       <module name="hospital-service-impl" target="1.7" />
       <module name="hospital-service-impl-test" target="1.7" />
+      <module name="hospital-service-impl-web" target="1.7" />
+      <module name="hospital-service-impl-web-demo" target="1.7" />
       <module name="HospitalMedical" target="1.7" />
       <module name="InhospMedical" target="1.7" />
     </bytecodeTargetLevel>

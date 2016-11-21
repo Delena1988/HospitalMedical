@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+        ">
+    <!-- 扫描controller（controller层注入） -->
+    <context:component-scan base-package="cn.joinhealth.restful"/>
+    <!-- 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean,是spring MVC为@Controllers分发请求所必须的 -->
+    <context:annotation-config />
+    <!-- 指定自己定义的validator -->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <beans:ref bean="fastJsonHttpMessageConverter"/>
+        </mvc:message-converters>
+        <!--<mvc:argument-resolvers>-->
+            <!--<bean class="cn.joinhealth.hug.web.util.UserArgumentResolver" />-->
+        <!--</mvc:argument-resolvers>-->
+    </mvc:annotation-driven>
+
+    <!--<mvc:interceptors>-->
+        <!--<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/r/**/**"/>-->
+            <!--<mvc:exclude-mapping path="/r/file/download/**"/>-->
+            <!--<mvc:exclude-mapping path="/r/info/**"/>-->
+            <!--<mvc:exclude-mapping path="/r/user/1002"/>-->
+            <!--<mvc:exclude-mapping path="/r/health/1014"/>-->
+            <!--<mvc:exclude-mapping path="/r/menu/1000"/>-->
+            <!--<mvc:exclude-mapping path="/r/hos/1004"/>-->
+            <!--<bean class="cn.joinhealth.hug.web.inteceptor.HugInteceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+    <!--<mvc:resources mapping="/js/**" location="/js/"/>-->
+    <!--<mvc:resources mapping="/css/**" location="/css/"/>-->
+    <!--<mvc:resources mapping="/images/**" location="/images/"/>-->
+    <!--<mvc:resources mapping="/common/**" location="/common/"/>-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="zh_CN"/>
+    </bean>
+    <!-- 支持返回json(避免IE在ajax请求时，返回json出现下载 ) -->
+    <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/plain;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 对模型视图添加前后缀 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/views/" p:suffix=".jsp"/>
+
+    <!-- 配置springMVC处理上传文件的信息 -->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+        <!--<property name="defaultEncoding" value="utf-8"/>-->
+        <!--<property name="maxUploadSize" value="10485760000"/>-->
+        <!--<property name="maxInMemorySize" value="40960"/>-->
+    <!--</bean>-->
+
+    <!--全局异常拦截解析器-->
+    <!--<beans:bean id="medExceptionResolver" class="cn.joinhealth.hug.web.util.HugExceptionResolver">-->
+        <!--<beans:property name="messageConverter" ref="fastJsonHttpMessageConverter"/>-->
+    <!--</beans:bean>-->
+
+    <!-- 定时器配置
+    task:executor/@pool-size：可以指定执行线程池的初始大小、最大大小
+    task:executor/@queue-capacity：等待执行的任务队列的容量
+   -->
+    <!--<task:scheduler id="scheduler" pool-size="10"/>-->
+    <!--<task:executor id="executor" pool-size="10-30" queue-capacity="200"/>-->
+    <!--<task:annotation-driven executor="executor" scheduler="scheduler"/>-->
+
+</beans>

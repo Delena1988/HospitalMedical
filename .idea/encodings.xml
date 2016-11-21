@@ -6,6 +6,8 @@
     <file url="file://$PROJECT_DIR$/hospital-service-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hospital-service-impl" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hospital-service-impl-test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hospital-service-impl-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hospital-service-impl-web-demo" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

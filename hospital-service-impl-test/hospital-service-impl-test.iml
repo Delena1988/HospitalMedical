@@ -26,7 +26,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty:3.7.0.Final" level="project" />
     <orderEntry type="library" name="Maven: com.github.sgroschupf:zkclient:0.1" level="project" />
-    <orderEntry type="module" module-name="hospital-service-api" />
+    <orderEntry type="library" name="Maven: com.lanniuh:hospital-service-api:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: cn.joinhealth:jh-hos-api:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: cn.joinhealth:jh-dte-client:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: cn.joinhealth:jh-dte-api:1.0-SNAPSHOT" level="project" />
