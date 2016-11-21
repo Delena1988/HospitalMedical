@@ -99,11 +99,11 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="multipleDataSource"/>
         <property name="mapperLocations" value="classpath*:mapper/*Mapper.xml"/>
-        <property name="configLocation" value="mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
     <!-- mybatis.spring自动映射 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="cn.joinhealth.hospmedical.*.dao"/>
+        <property name="basePackage" value="cn.joinhealth.hospmedical.*.dao,cn.joinhealth.appointment.*.dao"/>
     </bean>
 </beans>

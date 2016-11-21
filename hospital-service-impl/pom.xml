@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>hospital-service-impl</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>hospital-service-impl</name>
     <url>http://maven.apache.org</url>
@@ -33,6 +33,10 @@
         <spring.version>4.2.6.RELEASE</spring.version>
         <fastjson.version>1.2.3</fastjson.version>
         <pagehelper.version>4.1.6</pagehelper.version>
+        <javaee-api.version>7.0</javaee-api.version>
+        <jaxws-api.version>2.2.11</jaxws-api.version>
+        <jaxws-rt.version>2.2.10</jaxws-rt.version>
+        <jaxws-tools.version>2.2.10</jaxws-tools.version>
     </properties>
 
     <!-- 定义打包环境变量，生产环境；测试环境；开发环境 -->
@@ -42,6 +46,9 @@
             <properties>
                 <package.environment>standard</package.environment>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
         <profile>
             <id>lanxi</id>
@@ -73,8 +80,6 @@
                     <exclude>lanxi/**</exclude>
                     <exclude>test/**</exclude>
                     <exclude>assembly.xml</exclude>
-                    <exclude>production/*</exclude>
-                    <exclude>development/*</exclude>
                 </excludes>
                 <!-- 是否替换资源中的属性-->
                 <filtering>true</filtering>
@@ -83,43 +88,6 @@
                 <directory>src/main/resources/${package.environment}</directory>
             </resource>
         </resources>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>cn.joinhealth.start.StartService</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4.1</version>
-                <executions>
-                    <execution>
-                        <id>make-zip</id>
-                        <!-- 绑定到package生命周期阶段上 -->
-                        <phase>package</phase>
-                        <goals>
-                            <!-- 绑定到package生命周期阶段上 -->
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptors> <!--描述文件路径 -->
-                                <descriptor>src/main/resources/assembly.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
 
     <dependencies>
@@ -240,6 +208,11 @@
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
         <!--mysql-->
         <dependency>
             <groupId>mysql</groupId>
@@ -263,6 +236,26 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javaee-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.ws</groupId>
+            <artifactId>jaxws-api</artifactId>
+            <version>${jaxws-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>${jaxws-rt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-tools</artifactId>
+            <version>${jaxws-tools.version}</version>
         </dependency>
     </dependencies>
 </project>
