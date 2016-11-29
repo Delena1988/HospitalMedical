@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.joinhealth.hospmedical.inhosporder.dao.InhospOrderMapper">
+    <resultMap id="BaseResultMap" type="cn.joinhealth.hospmedical.model.inhosporder.InhospOrder">
+        <id column="ORDER_NO" jdbcType="VARCHAR" property="orderNo"/>
+        <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode"/>
+        <result column="PAT_INDEX_NO" jdbcType="VARCHAR" property="patIndexNo"/>
+        <result column="INHOSP_NO" jdbcType="VARCHAR" property="inhospNo"/>
+        <result column="INHOSP_NUM" jdbcType="VARCHAR" property="inhospNum"/>
+        <result column="INHOSP_SERIAL_NO" jdbcType="VARCHAR" property="inhospSerialNo"/>
+        <result column="ORDER_GROUP_NO" jdbcType="VARCHAR" property="orderGroupNo"/>
+        <result column="ORDER_PLAN_BEGIN_DATE" jdbcType="VARCHAR" property="orderPlanBeginDate"/>
+        <result column="ORDER_PLAN_END_DATE" jdbcType="VARCHAR" property="orderPlanEndDate"/>
+        <result column="ORDER_BEGIN_DATE" jdbcType="VARCHAR" property="orderBeginDate"/>
+        <result column="ORDER_END_DATE" jdbcType="VARCHAR" property="orderEndDate"/>
+        <result column="ORDER_ORDER_DATE" jdbcType="VARCHAR" property="orderOrderDate"/>
+        <result column="ORDER_OPEN_DEPT_CODE" jdbcType="VARCHAR" property="orderOpenDeptCode"/>
+        <result column="ORDER_OPEN_DEPT_NAME" jdbcType="VARCHAR" property="orderOpenDeptName"/>
+        <result column="ORDER_OPEN_DR_CODE" jdbcType="VARCHAR" property="orderOpenDrCode"/>
+        <result column="ORDER_OPEN_DR_NAME" jdbcType="VARCHAR" property="orderOpenDrName"/>
+        <result column="ORDER_EXECUTE_DATE" jdbcType="VARCHAR" property="orderExecuteDate"/>
+        <result column="ORDER_ITEM_TYPE_CODE" jdbcType="VARCHAR" property="orderItemTypeCode"/>
+        <result column="ORDER_ITEM_TYPE_NAME" jdbcType="VARCHAR" property="orderItemTypeName"/>
+        <result column="ORDER_CATEG_CODE" jdbcType="VARCHAR" property="orderCategCode"/>
+        <result column="ORDER_CATEG_NAME" jdbcType="VARCHAR" property="orderCategName"/>
+        <result column="ORDER_ITEM_CODE" jdbcType="VARCHAR" property="orderItemCode"/>
+        <result column="ORDER_ITEM_NAME" jdbcType="VARCHAR" property="orderItemName"/>
+        <result column="DRUG_CODE" jdbcType="VARCHAR" property="drugCode"/>
+        <result column="DRUG_NAME" jdbcType="VARCHAR" property="drugName"/>
+        <result column="DRUG_SPECIFICATIONS" jdbcType="VARCHAR" property="drugSpecifications"/>
+        <result column="DOSE_WAY_CODE" jdbcType="VARCHAR" property="doseWayCode"/>
+        <result column="DOSE_WAY_NAME" jdbcType="VARCHAR" property="doseWayName"/>
+        <result column="DRUG_USE_ONE_DOSAGE" jdbcType="VARCHAR" property="drugUseOneDosage"/>
+        <result column="DRUG_USE_ONE_DOSAGE_UNIT" jdbcType="VARCHAR" property="drugUseOneDosageUnit"/>
+        <result column="DRUG_USE_FREQUENCY_CODE" jdbcType="VARCHAR" property="drugUseFrequencyCode"/>
+        <result column="DRUG_USE_FREQUENCY_NAME" jdbcType="VARCHAR" property="drugUseFrequencyName"/>
+        <result column="DRUG_FORM_CODE" jdbcType="VARCHAR" property="drugFormCode"/>
+        <result column="DRUG_FORM_NAME" jdbcType="VARCHAR" property="drugFormName"/>
+        <result column="DRUG_UNIT" jdbcType="VARCHAR" property="drugUnit"/>
+        <result column="DRUG_UNIT_PRICE" jdbcType="VARCHAR" property="drugUnitPrice"/>
+        <result column="DRUG_ABBREV" jdbcType="VARCHAR" property="drugAbbrev"/>
+        <result column="DRUG_DESCR" jdbcType="VARCHAR" property="drugDescr"/>
+        <result column="DRUG_AMOUNT" jdbcType="VARCHAR" property="drugAmount"/>
+        <result column="ORDER_DURATION" jdbcType="VARCHAR" property="orderDuration"/>
+        <result column="ORDER_DURATION_UNIT" jdbcType="VARCHAR" property="orderDurationUnit"/>
+        <result column="BASE_AUX_DRUG_FLAG" jdbcType="VARCHAR" property="baseAuxDrugFlag"/>
+        <result column="DISCHARGE_ORDER_FLAG" jdbcType="VARCHAR" property="dischargeOrderFlag"/>
+        <result column="DR_ENTRUST" jdbcType="VARCHAR" property="drEntrust"/>
+        <result column="NOTE" jdbcType="VARCHAR" property="note"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ORDER_NO, ORGAN_CODE, PAT_INDEX_NO, INHOSP_NO, INHOSP_NUM, INHOSP_SERIAL_NO, ORDER_GROUP_NO, 
+    ORDER_PLAN_BEGIN_DATE, ORDER_PLAN_END_DATE, ORDER_BEGIN_DATE, ORDER_END_DATE, ORDER_ORDER_DATE, 
+    ORDER_OPEN_DEPT_CODE, ORDER_OPEN_DEPT_NAME, ORDER_OPEN_DR_CODE, ORDER_OPEN_DR_NAME, 
+    ORDER_EXECUTE_DATE, ORDER_ITEM_TYPE_CODE, ORDER_ITEM_TYPE_NAME, ORDER_CATEG_CODE, 
+    ORDER_CATEG_NAME, ORDER_ITEM_CODE, ORDER_ITEM_NAME, DRUG_CODE, DRUG_NAME, DRUG_SPECIFICATIONS, 
+    DOSE_WAY_CODE, DOSE_WAY_NAME, DRUG_USE_ONE_DOSAGE, DRUG_USE_ONE_DOSAGE_UNIT, DRUG_USE_FREQUENCY_CODE, 
+    DRUG_USE_FREQUENCY_NAME, DRUG_FORM_CODE, DRUG_FORM_NAME, DRUG_UNIT, DRUG_UNIT_PRICE, 
+    DRUG_ABBREV, DRUG_DESCR, DRUG_AMOUNT, ORDER_DURATION, ORDER_DURATION_UNIT, BASE_AUX_DRUG_FLAG, 
+    DISCHARGE_ORDER_FLAG, DR_ENTRUST, NOTE
+  </sql>
+    <select id="selectByParams" parameterType="cn.joinhealth.hospmedical.model.inhosporder.InhospOrderReq" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List"/>
+        FROM v_jh_inhosporder
+        WHERE INHOSP_SERIAL_NO = #{inhospSerialNo}
+        <if test="startDate != null and !''.equals(startDate)">
+            <if test="dataSourceType == 1">
+                AND ORDER_ORDER_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+            </if>
+            <if test="dataSourceType == 2 or dataSourceType == 3">
+                AND ORDER_ORDER_DATE &gt;= #{startDate}
+            </if>
+        </if>
+        <if test="endDate != null and !''.equals(endDate)">
+            <if test="dataSourceType == 1">
+                AND ORDER_ORDER_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+            </if>
+            <if test="dataSourceType == 2 or dataSourceType == 3">
+                AND ORDER_ORDER_DATE &lt;= #{endDate}
+            </if>
+        </if>
+        ORDER BY ORDER_ORDER_DATE,ORDER_NO DESC
+    </select>
+</mapper>

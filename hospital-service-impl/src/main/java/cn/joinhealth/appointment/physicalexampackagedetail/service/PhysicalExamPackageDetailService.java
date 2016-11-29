@@ -1,9 +1,7 @@
 package cn.joinhealth.appointment.physicalexampackagedetail.service;
 
+import cn.joinhealth.appointment.model.physicalexampackage.PhysicalExamPackage2;
 import cn.joinhealth.appointment.model.physicalexampackagedetail.PhysicalExamPackageDetailReq;
-import cn.joinhealth.appointment.model.physicalexampackagedetail.PhysicalExamPackageDetail;
-
-import java.util.List;
 
 /**
  * Created by linjian
@@ -13,7 +11,7 @@ public interface PhysicalExamPackageDetailService {
     /**
      * @Description:查询体检套餐明细
      * @param: [physicalExamPackageDetailReq]
-     * @return: java.util.List<cn.joinhealth.appointment.model.physicalexampackagedetail.PhysicalExamPackageDetail>
+     * @return: PhysicalExamPackage2
      */
-    List<PhysicalExamPackageDetail> selectByParams(PhysicalExamPackageDetailReq physicalExamPackageDetailReq);
+    PhysicalExamPackage2 selectByParams(PhysicalExamPackageDetailReq physicalExamPackageDetailReq);
 }

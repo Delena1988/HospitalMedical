@@ -3,6 +3,7 @@ package cn.joinhealth.hospmedical.diagdict.service.impl;
 import cn.joinhealth.hospmedical.diagdict.dao.DiagDictMapper;
 import cn.joinhealth.hospmedical.diagdict.service.DiagDictService;
 import cn.joinhealth.hospmedical.model.diagdict.DiagDict;
+import cn.joinhealth.hospmedical.model.diagdict.DiagDictReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class DiagDictServiceImpl implements DiagDictService {
     DiagDictMapper diagDictMapper;
 
     @Override
-    public List<DiagDict> selectAll() {
-        return diagDictMapper.selectAll();
+    public List<DiagDict> selectAll(DiagDictReq diagDictReq) {
+        return diagDictMapper.selectAll(diagDictReq);
     }
 }

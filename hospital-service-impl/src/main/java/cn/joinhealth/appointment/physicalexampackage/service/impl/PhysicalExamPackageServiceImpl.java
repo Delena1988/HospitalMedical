@@ -1,6 +1,7 @@
 package cn.joinhealth.appointment.physicalexampackage.service.impl;
 
 import cn.joinhealth.appointment.model.physicalexampackage.PhysicalExamPackage;
+import cn.joinhealth.appointment.model.physicalexampackage.PhysicalExamPackageReq;
 import cn.joinhealth.appointment.physicalexampackage.dao.PhysicalExamPackageMapper;
 import cn.joinhealth.appointment.physicalexampackage.service.PhysicalExamPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class PhysicalExamPackageServiceImpl implements PhysicalExamPackageServic
     private PhysicalExamPackageMapper physicalExamPackageMapper;
 
     @Override
-    public List<PhysicalExamPackage> selectAll() {
-        return physicalExamPackageMapper.selectAll();
+    public List<PhysicalExamPackage> selectAll(PhysicalExamPackageReq physicalExamPackageReq) {
+        return physicalExamPackageMapper.selectAll(physicalExamPackageReq);
     }
+
 }

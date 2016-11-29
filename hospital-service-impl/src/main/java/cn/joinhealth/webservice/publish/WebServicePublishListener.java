@@ -5,7 +5,6 @@ import cn.joinhealth.webservice.service.impl.WebServiceImpl;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
 import javax.xml.ws.Endpoint;
 
 /**
@@ -13,7 +12,7 @@ import javax.xml.ws.Endpoint;
  * 16/11/21
  * 用于发布WebService的监听器
  */
-@WebListener
+//@WebListener
 public class WebServicePublishListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {

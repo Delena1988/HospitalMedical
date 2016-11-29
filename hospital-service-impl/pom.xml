@@ -39,63 +39,6 @@
         <jaxws-tools.version>2.2.10</jaxws-tools.version>
     </properties>
 
-    <!-- 定义打包环境变量，生产环境；测试环境；开发环境 -->
-    <profiles>
-        <profile>
-            <id>standard</id>
-            <properties>
-                <package.environment>standard</package.environment>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <package.environment>test</package.environment>
-            </properties>
-        </profile>
-        <profile>
-            <id>lanxi</id>
-            <properties>
-                <package.environment>lanxi</package.environment>
-            </properties>
-        </profile>
-    </profiles>
-
-    <build>
-        <finalName>${project.artifactId}</finalName>
-        <resources>
-            <!-- 解决MyBatis配置文件引入问题 -->
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                    <include>**/*.properties</include>
-                </includes>
-                <!-- 是否替换资源中的属性-->
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <!-- 资源根目录排除各环境的配置，使用单独的资源目录来指定 -->
-                <excludes>
-                    <exclude>standard/**</exclude>
-                    <exclude>test/**</exclude>
-                    <exclude>lanxi/**</exclude>
-                    <exclude>assembly.xml</exclude>
-                </excludes>
-                <!-- 是否替换资源中的属性-->
-                <filtering>true</filtering>
-            </resource>
-            <resource>
-                <directory>src/main/resources/${package.environment}</directory>
-            </resource>
-        </resources>
-    </build>
-
     <dependencies>
         <dependency>
             <groupId>cn.joinhealth</groupId>

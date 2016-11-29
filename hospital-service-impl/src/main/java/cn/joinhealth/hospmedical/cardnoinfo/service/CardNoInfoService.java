@@ -15,7 +15,7 @@ public interface CardNoInfoService {
      * @param: [patIndexNo] 患者索引号
      * @return: java.util.List<cn.joinhealth.hospmedical.model.cardnoinfo.CardNoInfo>
      */
-    List<CardNoInfo> selectByPatIndexNo(String patIndexNo);
+    List<CardNoInfo> selectByPatIndexNo(CardNoInfoReq cardNoInfoReq);
 
     /**
      * @Description:根据姓名、身份证查询卡号信息

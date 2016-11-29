@@ -1,8 +1,9 @@
 package cn.joinhealth.hospmedical.deptdict.service.impl;
 
 import cn.joinhealth.hospmedical.deptdict.dao.DeptDictMapper;
-import cn.joinhealth.hospmedical.model.deptdict.DeptDict;
 import cn.joinhealth.hospmedical.deptdict.service.DeptDictService;
+import cn.joinhealth.hospmedical.model.deptdict.DeptDict;
+import cn.joinhealth.hospmedical.model.deptdict.DeptDictReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,17 +19,17 @@ public class DeptDictServiceImpl implements DeptDictService {
     private DeptDictMapper deptDictMapper;
 
     @Override
-    public List<DeptDict> selectByDeptCode(String deptCode) {
-        return deptDictMapper.selectByDeptCode(deptCode);
+    public List<DeptDict> selectByDeptCode(DeptDictReq deptDictReq) {
+        return deptDictMapper.selectByDeptCode(deptDictReq);
     }
 
     @Override
-    public DeptDict selectByDeptIndexNo(String deptIndexNo) {
-        return deptDictMapper.selectByDeptIndexNo(deptIndexNo);
+    public DeptDict selectByDeptIndexNo(DeptDictReq deptDictReq) {
+        return deptDictMapper.selectByDeptIndexNo(deptDictReq);
     }
 
     @Override
-    public List<DeptDict> selectAll() {
-        return deptDictMapper.selectAll();
+    public List<DeptDict> selectAll(DeptDictReq deptDictReq) {
+        return deptDictMapper.selectAll(deptDictReq);
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.joinhealth.appointment.registerhistory.dao.RegisterHistoryMapper">
+  <resultMap id="BaseResultMap" type="cn.joinhealth.appointment.model.registerhistory.RegisterHistory">
+    <id column="SCHEDULING_NO" jdbcType="VARCHAR" property="schedulingNo" />
+    <result column="ORGAN_CODE" jdbcType="VARCHAR" property="organCode" />
+    <result column="AP" jdbcType="VARCHAR" property="ap" />
+    <result column="SEQ_NO" jdbcType="VARCHAR" property="seqNo" />
+    <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="DR_CODE" jdbcType="VARCHAR" property="drCode" />
+    <result column="DR_NAME" jdbcType="VARCHAR" property="drName" />
+    <result column="PAT_NAME" jdbcType="VARCHAR" property="patName" />
+    <result column="ID_NUMBER" jdbcType="VARCHAR" property="idNumber" />
+    <result column="MOBILE_NO" jdbcType="VARCHAR" property="mobileNo" />
+    <result column="VISIT_CARD_NO" jdbcType="VARCHAR" property="visitCardNo" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="VISIT_DATE" jdbcType="VARCHAR" property="visitDate" />
+    <result column="TAKE_NO_TIME" jdbcType="VARCHAR" property="takeNoTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SCHEDULING_NO, ORGAN_CODE, AP, SEQ_NO, DEPT_CODE, DEPT_NAME, DR_CODE, DR_NAME, PAT_NAME, 
+    ID_NUMBER, MOBILE_NO, VISIT_CARD_NO, STATUS, VISIT_DATE, TAKE_NO_TIME
+  </sql>
+  <select id="selectByParams" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+      <include refid="Base_Column_List"/>
+    FROM v_jh_registerhistory
+    WHERE 1 = 1
+    <if test="startDate != null and !''.equals(startDate)">
+      <if test="dataSourceType == 1">
+        AND VISIT_DATE &gt;= to_date(#{startDate},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="dataSourceType == 2 or dataSourceType == 3">
+        AND VISIT_DATE &gt;= #{startDate}
+      </if>
+    </if>
+    <if test="endDate != null and !''.equals(endDate)">
+      <if test="dataSourceType == 1">
+        AND VISIT_DATE &lt;= to_date(#{endDate},'yyyy-mm-dd hh24:mi:ss')
+      </if>
+      <if test="dataSourceType == 2 or dataSourceType == 3">
+        AND VISIT_DATE &lt;= #{endDate}
+      </if>
+    </if>
+  </select>
+</mapper>

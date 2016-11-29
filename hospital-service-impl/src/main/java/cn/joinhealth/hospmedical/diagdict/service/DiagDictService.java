@@ -2,6 +2,7 @@ package cn.joinhealth.hospmedical.diagdict.service;
 
 
 import cn.joinhealth.hospmedical.model.diagdict.DiagDict;
+import cn.joinhealth.hospmedical.model.diagdict.DiagDictReq;
 
 import java.util.List;
 
@@ -12,8 +13,8 @@ import java.util.List;
 public interface DiagDictService {
     /**
      * @Description:查询所有疾病信息
-     * @param: []
-     * @return: java.util.List<cn.joinhealth.hospmedical.model.diagdict.DiagDict>
+     * @param: diagDictReq
+     * @return: List<DiagDict>
      */
-    List<DiagDict> selectAll();
+    List<DiagDict> selectAll(DiagDictReq diagDictReq);
 }

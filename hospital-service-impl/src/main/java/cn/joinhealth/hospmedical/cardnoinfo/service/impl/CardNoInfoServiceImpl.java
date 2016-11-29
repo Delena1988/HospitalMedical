@@ -19,8 +19,8 @@ public class CardNoInfoServiceImpl implements CardNoInfoService {
     private CardNoInfoMapper cardNoInfoMapper;
 
     @Override
-    public List<CardNoInfo> selectByPatIndexNo(String patIndexNo) {
-        return cardNoInfoMapper.selectByPatIndexNo(patIndexNo);
+    public List<CardNoInfo> selectByPatIndexNo(CardNoInfoReq cardNoInfoReq) {
+        return cardNoInfoMapper.selectByPatIndexNo(cardNoInfoReq);
     }
 
     @Override
