@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 public class RegisterReq implements Serializable {
     private static final long serialVersionUID = 8513843757771329572L;
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String schedulingNo;//排班编号
     private String visitDate;//日期
@@ -23,6 +24,15 @@ public class RegisterReq implements Serializable {
     private String visitCardType;//就诊卡类型
     private String visitCardNo;//就诊卡号
     private String password;//取号密码
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
+
+    public int getSysCode() {
+        return sysCode;
+    }
+
+    public void setSysCode(int sysCode) {
+        this.sysCode = sysCode;
+    }
 
     public String getOrganCode() {
         return organCode;
@@ -136,10 +146,19 @@ public class RegisterReq implements Serializable {
         this.password = password;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "RegisterReq{" +
-                "organCode='" + organCode + '\'' +
+                "sysCode='" + sysCode + '\'' +
+                ", organCode='" + organCode + '\'' +
                 ", schedulingNo='" + schedulingNo + '\'' +
                 ", visitDate='" + visitDate + '\'' +
                 ", ap='" + ap + '\'' +
@@ -153,6 +172,7 @@ public class RegisterReq implements Serializable {
                 ", visitCardType='" + visitCardType + '\'' +
                 ", visitCardNo='" + visitCardNo + '\'' +
                 ", password='" + password + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class SignsReq implements Serializable {
     private static final long serialVersionUID = 4877161436307046249L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String patIndexNo;//患者索引号
     private String visitCardNo;//就诊卡号
@@ -24,15 +24,17 @@ public class SignsReq implements Serializable {
     private String endDate;//结束日期时间
     private String type;//体征类型
     private String normalFlag;//正常标志
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
+
     private Boolean pageFlag = false;//分页标志 false不分页，true分页
     private int pageNum = 0;//当前的页数
     private int pageSize = 0;//每页显示的条数
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -172,6 +174,14 @@ public class SignsReq implements Serializable {
         this.pageSize = pageSize;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "SignsReq{" +
@@ -190,6 +200,7 @@ public class SignsReq implements Serializable {
                 ", endDate='" + endDate + '\'' +
                 ", type='" + type + '\'' +
                 ", normalFlag='" + normalFlag + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 ", pageFlag=" + pageFlag +
                 ", pageNum=" + pageNum +
                 ", pageSize=" + pageSize +

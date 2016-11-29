@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class SignedPatientInfoReq implements Serializable {
     private static final long serialVersionUID = 668607755926889825L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String patIndexNo;//患者索引号
     private String visitCardNo;//就诊卡号
@@ -23,16 +23,17 @@ public class SignedPatientInfoReq implements Serializable {
     private String ageStart;//开始年龄
     private String ageEnd;//结束年龄
     private String diagName;//诊断名称
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
     private Boolean pageFlag = false;//分页标志 false不分页，true分页
     private int pageNum = 0;//当前的页数
     private int pageSize = 0;//每页显示的条数
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -164,6 +165,14 @@ public class SignedPatientInfoReq implements Serializable {
         this.pageSize = pageSize;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "SignedPatientInfoReq{" +
@@ -181,6 +190,7 @@ public class SignedPatientInfoReq implements Serializable {
                 ", ageStart='" + ageStart + '\'' +
                 ", ageEnd='" + ageEnd + '\'' +
                 ", diagName='" + diagName + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 ", pageFlag=" + pageFlag +
                 ", pageNum=" + pageNum +
                 ", pageSize=" + pageSize +

@@ -10,16 +10,17 @@ import java.util.List;
  */
 public class InhospFeeDetailReq implements Serializable{
     private static final long serialVersionUID = 2971277925848605578L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private List<String> dealNo;// 交易流水号
     private String feeCategCode;//费用类别代码
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -47,6 +48,14 @@ public class InhospFeeDetailReq implements Serializable{
         this.feeCategCode = feeCategCode;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "InhospFeeDetailReq{" +
@@ -54,6 +63,7 @@ public class InhospFeeDetailReq implements Serializable{
                 ", organCode='" + organCode + '\'' +
                 ", dealNo=" + dealNo +
                 ", feeCategCode='" + feeCategCode + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

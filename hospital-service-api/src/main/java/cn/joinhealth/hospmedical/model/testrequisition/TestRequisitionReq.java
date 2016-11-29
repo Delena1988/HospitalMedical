@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class TestRequisitionReq implements Serializable{
     private static final long serialVersionUID = -126100793655852491L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String outhospSerialNo;//门诊流水号
     private String inhospSerialNo;//住院流水号
@@ -17,12 +17,13 @@ public class TestRequisitionReq implements Serializable{
     private String inhospNo;//住院号
     private String startDate;//开始日期时间
     private String endDate;//结束日期时间
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -82,6 +83,14 @@ public class TestRequisitionReq implements Serializable{
         this.endDate = endDate;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "TestRequisitionReq{" +
@@ -93,6 +102,7 @@ public class TestRequisitionReq implements Serializable{
                 ", inhospNo='" + inhospNo + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

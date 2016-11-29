@@ -10,7 +10,8 @@ import java.util.List;
  */
 public class TestSampleReq implements Serializable {
     private static final long serialVersionUID = 4107440591204919417L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
+    private String organCode;//组织机构代码
     private String patIndexNo;//患者索引号
     private String outhospNo;//门诊号
     private String outhospSerialNo;//门诊流水号
@@ -18,13 +19,22 @@ public class TestSampleReq implements Serializable {
     private String inhospSerialNo;//住院流水号
     private List<String> requisitionNo;//申请单编号
     private List<String> requisitionNoItem;//申请单分项目序号
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
+    }
+
+    public String getOrganCode() {
+        return organCode;
+    }
+
+    public void setOrganCode(String organCode) {
+        this.organCode = organCode;
     }
 
     public String getPatIndexNo() {
@@ -83,10 +93,19 @@ public class TestSampleReq implements Serializable {
         this.requisitionNoItem = requisitionNoItem;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "TestSampleReq{" +
-                "sysCode='" + sysCode + '\'' +
+                "sysCode=" + sysCode +
+                ", organCode='" + organCode + '\'' +
                 ", patIndexNo='" + patIndexNo + '\'' +
                 ", outhospNo='" + outhospNo + '\'' +
                 ", outhospSerialNo='" + outhospSerialNo + '\'' +
@@ -94,6 +113,7 @@ public class TestSampleReq implements Serializable {
                 ", inhospSerialNo='" + inhospSerialNo + '\'' +
                 ", requisitionNo=" + requisitionNo +
                 ", requisitionNoItem=" + requisitionNoItem +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

@@ -33,26 +33,19 @@ public class ExamReport implements Serializable {
     private String applyDrCode;//申请医生工号
     private String applyDrName;//申请医生姓名
     private String executeDate;//执行日期
-    private String picture;//图片（jpg）
+    private String picture;//图片（jpg）内网
+    private String pictureWeb;//图片（jpg）外网
     private String examResult;//检查结果（客观所见）
     private String examDescription;//检查描述（主观提示）
     private String reportDate;//报告日期
     private String note;//备注
-
-    public String getReportNo() {
-        return reportNo;
-    }
-
-    public void setReportNo(String reportNo) {
-        this.reportNo = reportNo == null ? null : reportNo.trim();
-    }
 
     public String getOrganCode() {
         return organCode;
     }
 
     public void setOrganCode(String organCode) {
-        this.organCode = organCode == null ? null : organCode.trim();
+        this.organCode = organCode;
     }
 
     public String getPatIndexNo() {
@@ -60,7 +53,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setPatIndexNo(String patIndexNo) {
-        this.patIndexNo = patIndexNo == null ? null : patIndexNo.trim();
+        this.patIndexNo = patIndexNo;
     }
 
     public String getOuthospNo() {
@@ -68,7 +61,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setOuthospNo(String outhospNo) {
-        this.outhospNo = outhospNo == null ? null : outhospNo.trim();
+        this.outhospNo = outhospNo;
     }
 
     public String getOuthospSerialNo() {
@@ -76,7 +69,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setOuthospSerialNo(String outhospSerialNo) {
-        this.outhospSerialNo = outhospSerialNo == null ? null : outhospSerialNo.trim();
+        this.outhospSerialNo = outhospSerialNo;
     }
 
     public String getInhospNo() {
@@ -84,7 +77,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setInhospNo(String inhospNo) {
-        this.inhospNo = inhospNo == null ? null : inhospNo.trim();
+        this.inhospNo = inhospNo;
     }
 
     public String getInhospNum() {
@@ -92,7 +85,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setInhospNum(String inhospNum) {
-        this.inhospNum = inhospNum == null ? null : inhospNum.trim();
+        this.inhospNum = inhospNum;
     }
 
     public String getInhospSerialNo() {
@@ -100,7 +93,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setInhospSerialNo(String inhospSerialNo) {
-        this.inhospSerialNo = inhospSerialNo == null ? null : inhospSerialNo.trim();
+        this.inhospSerialNo = inhospSerialNo;
     }
 
     public String getRequisitionNo() {
@@ -108,7 +101,15 @@ public class ExamReport implements Serializable {
     }
 
     public void setRequisitionNo(String requisitionNo) {
-        this.requisitionNo = requisitionNo == null ? null : requisitionNo.trim();
+        this.requisitionNo = requisitionNo;
+    }
+
+    public String getReportNo() {
+        return reportNo;
+    }
+
+    public void setReportNo(String reportNo) {
+        this.reportNo = reportNo;
     }
 
     public String getReportName() {
@@ -116,7 +117,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setReportName(String reportName) {
-        this.reportName = reportName == null ? null : reportName.trim();
+        this.reportName = reportName;
     }
 
     public String getEquipmentCode() {
@@ -124,7 +125,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setEquipmentCode(String equipmentCode) {
-        this.equipmentCode = equipmentCode == null ? null : equipmentCode.trim();
+        this.equipmentCode = equipmentCode;
     }
 
     public String getEquipmentName() {
@@ -132,7 +133,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setEquipmentName(String equipmentName) {
-        this.equipmentName = equipmentName == null ? null : equipmentName.trim();
+        this.equipmentName = equipmentName;
     }
 
     public String getOperPartCode() {
@@ -140,7 +141,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setOperPartCode(String operPartCode) {
-        this.operPartCode = operPartCode == null ? null : operPartCode.trim();
+        this.operPartCode = operPartCode;
     }
 
     public String getOperPartName() {
@@ -148,7 +149,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setOperPartName(String operPartName) {
-        this.operPartName = operPartName == null ? null : operPartName.trim();
+        this.operPartName = operPartName;
     }
 
     public String getExamCategCode() {
@@ -156,7 +157,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setExamCategCode(String examCategCode) {
-        this.examCategCode = examCategCode == null ? null : examCategCode.trim();
+        this.examCategCode = examCategCode;
     }
 
     public String getExamCategName() {
@@ -164,7 +165,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setExamCategName(String examCategName) {
-        this.examCategName = examCategName == null ? null : examCategName.trim();
+        this.examCategName = examCategName;
     }
 
     public String getExamItemCode() {
@@ -172,7 +173,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setExamItemCode(String examItemCode) {
-        this.examItemCode = examItemCode == null ? null : examItemCode.trim();
+        this.examItemCode = examItemCode;
     }
 
     public String getExamItemName() {
@@ -180,7 +181,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setExamItemName(String examItemName) {
-        this.examItemName = examItemName == null ? null : examItemName.trim();
+        this.examItemName = examItemName;
     }
 
     public String getApplyDate() {
@@ -188,7 +189,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setApplyDate(String applyDate) {
-        this.applyDate = applyDate == null ? null : applyDate.trim();
+        this.applyDate = applyDate;
     }
 
     public String getApplyDeptCode() {
@@ -196,7 +197,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setApplyDeptCode(String applyDeptCode) {
-        this.applyDeptCode = applyDeptCode == null ? null : applyDeptCode.trim();
+        this.applyDeptCode = applyDeptCode;
     }
 
     public String getApplyDeptName() {
@@ -204,7 +205,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setApplyDeptName(String applyDeptName) {
-        this.applyDeptName = applyDeptName == null ? null : applyDeptName.trim();
+        this.applyDeptName = applyDeptName;
     }
 
     public String getApplyDrCode() {
@@ -212,7 +213,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setApplyDrCode(String applyDrCode) {
-        this.applyDrCode = applyDrCode == null ? null : applyDrCode.trim();
+        this.applyDrCode = applyDrCode;
     }
 
     public String getApplyDrName() {
@@ -220,7 +221,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setApplyDrName(String applyDrName) {
-        this.applyDrName = applyDrName == null ? null : applyDrName.trim();
+        this.applyDrName = applyDrName;
     }
 
     public String getExecuteDate() {
@@ -228,7 +229,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setExecuteDate(String executeDate) {
-        this.executeDate = executeDate == null ? null : executeDate.trim();
+        this.executeDate = executeDate;
     }
 
     public String getPicture() {
@@ -236,7 +237,15 @@ public class ExamReport implements Serializable {
     }
 
     public void setPicture(String picture) {
-        this.picture = picture == null ? null : picture.trim();
+        this.picture = picture;
+    }
+
+    public String getPictureWeb() {
+        return pictureWeb;
+    }
+
+    public void setPictureWeb(String pictureWeb) {
+        this.pictureWeb = pictureWeb;
     }
 
     public String getExamResult() {
@@ -244,7 +253,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setExamResult(String examResult) {
-        this.examResult = examResult == null ? null : examResult.trim();
+        this.examResult = examResult;
     }
 
     public String getExamDescription() {
@@ -252,7 +261,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setExamDescription(String examDescription) {
-        this.examDescription = examDescription == null ? null : examDescription.trim();
+        this.examDescription = examDescription;
     }
 
     public String getReportDate() {
@@ -260,7 +269,7 @@ public class ExamReport implements Serializable {
     }
 
     public void setReportDate(String reportDate) {
-        this.reportDate = reportDate == null ? null : reportDate.trim();
+        this.reportDate = reportDate;
     }
 
     public String getNote() {
@@ -268,14 +277,13 @@ public class ExamReport implements Serializable {
     }
 
     public void setNote(String note) {
-        this.note = note == null ? null : note.trim();
+        this.note = note;
     }
 
     @Override
     public String toString() {
         return "ExamReport{" +
-                "reportNo='" + reportNo + '\'' +
-                ", organCode='" + organCode + '\'' +
+                "organCode='" + organCode + '\'' +
                 ", patIndexNo='" + patIndexNo + '\'' +
                 ", outhospNo='" + outhospNo + '\'' +
                 ", outhospSerialNo='" + outhospSerialNo + '\'' +
@@ -283,6 +291,7 @@ public class ExamReport implements Serializable {
                 ", inhospNum='" + inhospNum + '\'' +
                 ", inhospSerialNo='" + inhospSerialNo + '\'' +
                 ", requisitionNo='" + requisitionNo + '\'' +
+                ", reportNo='" + reportNo + '\'' +
                 ", reportName='" + reportName + '\'' +
                 ", equipmentCode='" + equipmentCode + '\'' +
                 ", equipmentName='" + equipmentName + '\'' +
@@ -299,6 +308,7 @@ public class ExamReport implements Serializable {
                 ", applyDrName='" + applyDrName + '\'' +
                 ", executeDate='" + executeDate + '\'' +
                 ", picture='" + picture + '\'' +
+                ", pictureWeb='" + pictureWeb + '\'' +
                 ", examResult='" + examResult + '\'' +
                 ", examDescription='" + examDescription + '\'' +
                 ", reportDate='" + reportDate + '\'' +

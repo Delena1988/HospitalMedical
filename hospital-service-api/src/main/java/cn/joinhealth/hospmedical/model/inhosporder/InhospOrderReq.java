@@ -9,20 +9,23 @@ import java.io.Serializable;
  */
 public class InhospOrderReq implements Serializable {
     private static final long serialVersionUID = -8243227296982692269L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String inhospSerialNo;//住院流水号
     private String startDate;//开始日期时间
     private String endDate;//结束日期时间
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
+
     private Boolean pageFlag = false;//分页标志 false不分页，true分页
     private int pageNum = 0;//当前的页数
     private int pageSize = 0;//每页显示的条数
 
-    public String getSysCode() {
+
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -82,6 +85,14 @@ public class InhospOrderReq implements Serializable {
         this.pageSize = pageSize;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "InhospOrderReq{" +
@@ -90,6 +101,7 @@ public class InhospOrderReq implements Serializable {
                 ", inhospSerialNo='" + inhospSerialNo + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 ", pageFlag=" + pageFlag +
                 ", pageNum=" + pageNum +
                 ", pageSize=" + pageSize +

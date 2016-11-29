@@ -9,17 +9,18 @@ import java.io.Serializable;
  */
 public class StaffDictReq implements Serializable {
     private static final long serialVersionUID = 6550207402428606839L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String staffIndexNo;//组织机构代码
     private String organCode;//职工索引号
     private String staffCode;//职工工号
     private String staffName;//职工姓名
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -55,14 +56,23 @@ public class StaffDictReq implements Serializable {
         this.staffName = staffName;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "StaffDictReq{" +
-                "sysCode='" + sysCode + '\'' +
+                "sysCode=" + sysCode +
                 ", staffIndexNo='" + staffIndexNo + '\'' +
                 ", organCode='" + organCode + '\'' +
                 ", staffCode='" + staffCode + '\'' +
                 ", staffName='" + staffName + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

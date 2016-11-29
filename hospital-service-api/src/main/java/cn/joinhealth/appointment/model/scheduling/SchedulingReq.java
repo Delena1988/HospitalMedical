@@ -4,16 +4,17 @@ import java.io.Serializable;
 
 public class SchedulingReq implements Serializable{
     private static final long serialVersionUID = 1740775795935785546L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String startDate;//开始日期时间
     private String endDate;//结束日期时间
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -41,6 +42,14 @@ public class SchedulingReq implements Serializable{
         this.endDate = endDate;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "SchedulingReq{" +
@@ -48,6 +57,7 @@ public class SchedulingReq implements Serializable{
                 ", organCode='" + organCode + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

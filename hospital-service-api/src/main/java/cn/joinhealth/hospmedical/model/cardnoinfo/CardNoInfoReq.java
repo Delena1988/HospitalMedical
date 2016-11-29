@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class CardNoInfoReq implements Serializable {
     private static final long serialVersionUID = -8327107080835318904L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String visitCardNo;//就诊卡号或住院号
     private String patIndexNo;//患者索引号
@@ -19,12 +19,13 @@ public class CardNoInfoReq implements Serializable {
     private String invalidFlag;//作废标志
     private String startDate;//开卡日期  开始时间
     private String endDate;//开卡日期  结束时间
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -100,12 +101,20 @@ public class CardNoInfoReq implements Serializable {
         this.endDate = endDate;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "CardNoInfoReq{" +
                 "sysCode='" + sysCode + '\'' +
-                ", visitCardNo='" + visitCardNo + '\'' +
                 ", organCode='" + organCode + '\'' +
+                ", visitCardNo='" + visitCardNo + '\'' +
                 ", patIndexNo='" + patIndexNo + '\'' +
                 ", visitCardType='" + visitCardType + '\'' +
                 ", patName='" + patName + '\'' +
@@ -113,6 +122,7 @@ public class CardNoInfoReq implements Serializable {
                 ", invalidFlag='" + invalidFlag + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

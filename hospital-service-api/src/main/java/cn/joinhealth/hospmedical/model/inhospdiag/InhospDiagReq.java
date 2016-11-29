@@ -9,15 +9,16 @@ import java.io.Serializable;
  */
 public class InhospDiagReq implements Serializable {
     private static final long serialVersionUID = -5351303751568313672L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String inhospSerialNo;//住院流水号
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -37,12 +38,21 @@ public class InhospDiagReq implements Serializable {
         this.inhospSerialNo = inhospSerialNo;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "InhospDiagReq{" +
                 "sysCode='" + sysCode + '\'' +
                 ", organCode='" + organCode + '\'' +
                 ", inhospSerialNo='" + inhospSerialNo + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

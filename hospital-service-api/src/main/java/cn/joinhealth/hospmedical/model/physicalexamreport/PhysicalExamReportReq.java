@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class PhysicalExamReportReq implements Serializable{
     private static final long serialVersionUID = 6397607724078580787L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String reportNo;//体检报告号
     private String patIndexNo;//患者索引号
@@ -20,16 +20,17 @@ public class PhysicalExamReportReq implements Serializable{
     private String examType;//体检类别 1-个人、2-团体
     private String startDate;//开始日期时间
     private String endDate;//结束日期时间
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
     private Boolean pageFlag = false;//分页标志 false不分页，true分页
     private int pageNum = 0;//当前的页数
     private int pageSize = 0;//每页显示的条数
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -137,6 +138,14 @@ public class PhysicalExamReportReq implements Serializable{
         this.pageSize = pageSize;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "PhysicalExamReportReq{" +
@@ -151,6 +160,7 @@ public class PhysicalExamReportReq implements Serializable{
                 ", examType='" + examType + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 ", pageFlag=" + pageFlag +
                 ", pageNum=" + pageNum +
                 ", pageSize=" + pageSize +

@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class ExamReportReq implements Serializable {
     private static final long serialVersionUID = -1941141493742102648L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String patIndexNo;//患者索引号
     private String outhospNo;//门诊号
@@ -21,14 +21,16 @@ public class ExamReportReq implements Serializable {
     private String applyDeptName;//申请科室名称
     private String applyDrCode;//申请医生工号
     private String applyDrName;//申请医生姓名
+    private String reportNo;//报告单好
     private String startDate;//开始日期时间
     private String endDate;//结束日期时间
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -120,6 +122,14 @@ public class ExamReportReq implements Serializable {
         this.applyDrName = applyDrName;
     }
 
+    public String getReportNo() {
+        return reportNo;
+    }
+
+    public void setReportNo(String reportNo) {
+        this.reportNo = reportNo;
+    }
+
     public String getStartDate() {
         return startDate;
     }
@@ -136,10 +146,18 @@ public class ExamReportReq implements Serializable {
         this.endDate = endDate;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "ExamReportReq{" +
-                "sysCode='" + sysCode + '\'' +
+                "sysCode=" + sysCode +
                 ", organCode='" + organCode + '\'' +
                 ", patIndexNo='" + patIndexNo + '\'' +
                 ", outhospNo='" + outhospNo + '\'' +
@@ -151,8 +169,10 @@ public class ExamReportReq implements Serializable {
                 ", applyDeptName='" + applyDeptName + '\'' +
                 ", applyDrCode='" + applyDrCode + '\'' +
                 ", applyDrName='" + applyDrName + '\'' +
+                ", reportNo='" + reportNo + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 public class CancelRegisterReq implements Serializable {
     private static final long serialVersionUID = -6409647969130021095L;
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String schedulingNo;//排班编号
     private String visitDate;//日期
@@ -18,6 +19,15 @@ public class CancelRegisterReq implements Serializable {
     private String idNumber;//身份证
     private String password;//取号密码
     private String registerRecordNo;//预约记录序号
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
+
+    public int getSysCode() {
+        return sysCode;
+    }
+
+    public void setSysCode(int sysCode) {
+        this.sysCode = sysCode;
+    }
 
     public String getOrganCode() {
         return organCode;
@@ -91,10 +101,19 @@ public class CancelRegisterReq implements Serializable {
         this.registerRecordNo = registerRecordNo;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "CancelRegisterReq{" +
-                "organCode='" + organCode + '\'' +
+                "sysCode='" + sysCode + '\'' +
+                ", organCode='" + organCode + '\'' +
                 ", schedulingNo='" + schedulingNo + '\'' +
                 ", visitDate='" + visitDate + '\'' +
                 ", ap='" + ap + '\'' +
@@ -103,6 +122,7 @@ public class CancelRegisterReq implements Serializable {
                 ", idNumber='" + idNumber + '\'' +
                 ", password='" + password + '\'' +
                 ", registerRecordNo='" + registerRecordNo + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

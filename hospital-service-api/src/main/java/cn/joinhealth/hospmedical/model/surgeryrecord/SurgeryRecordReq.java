@@ -9,19 +9,20 @@ import java.io.Serializable;
  */
 public class SurgeryRecordReq implements Serializable{
     private static final long serialVersionUID = 398869078844944029L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String outhospSerialNo;// 门诊流水号
     private String inhospSerialNo;// 住院流水号
     private String admitDate;//入院时间
     private String dischargeDate;//出院时间
     private String inhospNo;//住院号
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -73,6 +74,14 @@ public class SurgeryRecordReq implements Serializable{
         this.inhospNo = inhospNo;
     }
 
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "SurgeryRecordReq{" +
@@ -83,6 +92,7 @@ public class SurgeryRecordReq implements Serializable{
                 ", admitDate='" + admitDate + '\'' +
                 ", dischargeDate='" + dischargeDate + '\'' +
                 ", inhospNo='" + inhospNo + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }

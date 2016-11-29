@@ -6,6 +6,17 @@ package cn.joinhealth.constant;
  * 常量
  */
 public class Constant {
+    public static final int RES_SUCCESS = 1;//成功
+    public static final int RES_FAILED = -1;//失败
+    public static final String ERROR_MSG_PARAM_INVALID = "Parameters validate not passed";//参数校验未通过
+
+    public static final String SYS_CODE_HUG = "1";//调用系统 hug
+    public static final String SYS_CODE_INTERVIEW = "2";//调用系统 interview
+
+    public static final String data_source_type_oracle = "1";//数据源类型 oracle
+    public static final String data_source_type_sqlserver = "2";//数据源类型 sqlserver
+    public static final String data_source_type_mysql = "3";//数据源类型 mysql
+
     public static final String RESULT_CODE_SUCCESS = "1";//返回代码  成功
     public static final String RESULT_CODE_FAIL = "-1";//返回代码  失败
 

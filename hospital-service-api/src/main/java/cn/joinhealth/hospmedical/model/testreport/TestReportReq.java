@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class TestReportReq implements Serializable{
     private static final long serialVersionUID = 6419073937114981087L;
-    private String sysCode;//1-hug 2-interview
+    private int sysCode;//1-hug 2-interview
     private String organCode;//组织机构代码
     private String patIndexNo;//患者索引号
     private String outhospNo;//门诊号
@@ -24,12 +24,14 @@ public class TestReportReq implements Serializable{
     private String startDate;//开始日期时间
     private String endDate;//结束日期时间
     private List<String> barcodeNo;//条码号
+    private String reportNo;//报告单好
+    private int dataSourceType;//数据源类型 1、oracle 2、sqlserver 3、mysql
 
-    public String getSysCode() {
+    public int getSysCode() {
         return sysCode;
     }
 
-    public void setSysCode(String sysCode) {
+    public void setSysCode(int sysCode) {
         this.sysCode = sysCode;
     }
 
@@ -137,10 +139,26 @@ public class TestReportReq implements Serializable{
         this.barcodeNo = barcodeNo;
     }
 
+    public String getReportNo() {
+        return reportNo;
+    }
+
+    public void setReportNo(String reportNo) {
+        this.reportNo = reportNo;
+    }
+
+    public int getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(int dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
     @Override
     public String toString() {
         return "TestReportReq{" +
-                "sysCode='" + sysCode + '\'' +
+                "sysCode=" + sysCode +
                 ", organCode='" + organCode + '\'' +
                 ", patIndexNo='" + patIndexNo + '\'' +
                 ", outhospNo='" + outhospNo + '\'' +
@@ -154,6 +172,8 @@ public class TestReportReq implements Serializable{
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
                 ", barcodeNo=" + barcodeNo +
+                ", reportNo='" + reportNo + '\'' +
+                ", dataSourceType=" + dataSourceType +
                 '}';
     }
 }
